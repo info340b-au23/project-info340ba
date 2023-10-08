@@ -1,0 +1,26 @@
+body {
+    background-color: white;
+    color: black;
+    font-family: 'Open Sans', sans-serif;
+}
+
+h1 {
+    font-family: 'Krona One', sans-serif;
+}
+
+.header-logo {
+    max-width: 2rem;
+}
+
+p {
+    padding: 0rem;
+}
+
+.logo-container {
+    align-items: center;
+    display: flex;
+}
+
+.logo-container h1 {
+    margin: 0rem;
+}
