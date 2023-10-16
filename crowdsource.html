@@ -10,7 +10,8 @@
     </head>
     <body>
         <header>
-            <nav class="navbar navbar-expand-lg navbar-light">
+          <div class="container">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                   <span class="navbar-toggler-icon"></span>
                 </button>
@@ -35,16 +36,20 @@
                   </div>
                 </div>
             </nav>
+          </div>
         </header>
-
-        <section class="header-center">
+        
+        <div class="container p-5">
+          <section class="header-center">
             <h1>HELP US HELP YOU</h1>
             <p>We aim to make our service accessible and
                 intuitive, and use data collected exclusively from
                 departmental offices at the UW and student
                 submissions.</p>
-        </section>
-        <section id="forum">
+          </section>
+        </div>
+        <div class="container p-5">
+          <section id="forum">
             <div class="mb-3">
                 <label for="question" class="form-label">1. What major did you apply to?</label>
                 <input type="answer" class="form-control" id="exampleFormControlInput1">
@@ -90,9 +95,10 @@
                 <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
               </div>
               <button type="button" class="btn">Submit</button>
-        </section>
+          </section>
+        </div>
         
-        <div class="pt-5 pb-5 text-center">
+        <div class="container p-5 text-center">
             <div class="row-alternate">
                 <h2 class="heading2-text text-center">SUPPORTED MAJORS</h2>
             </div>
@@ -111,7 +117,8 @@
                 </div>
               </div>
         </div>
-        <footer class="footer px-4">
+        <div class="container">
+          <footer class="footer px-4">
             <div>
                 <hr>
                 <div class="row">
@@ -152,6 +159,7 @@
                 </div>
             </div>
         </footer>
+        </div>
     </body>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

@@ -10,54 +10,63 @@
     </head>
     <body>
         <header>
-            <nav class="navbar navbar-expand-lg navbar-light">
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                  <span class="navbar-toggler-icon"></span>
-                </button>
-              
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                  <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                      <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                      <a class="nav-link" href="crowdsource.html">Crowd Source</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="index.html">About</a>
-                      </li>
-                  </ul>
-                  <div class="p-1">
-                    <img src="img/github.svg" alt="github company logo"/>
-                  </div>
-                  <div class="p-1">
-                    <img src="img/discord.svg" alt="discord company logo"/>
-                  </div>
-                </div>
-            </nav>
+            <div class="container">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                        <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                        <a class="nav-link" href="crowdsource.html">Crowd Source</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="about.html">About</a>
+                        </li>
+                    </ul>
+                    <div class="p-1">
+                        <img src="img/github.svg" alt="github company logo"/>
+                    </div>
+                    <div class="p-1">
+                        <img src="img/discord.svg" alt="discord company logo"/>
+                    </div>
+                    </div>
+                </nav>
+            </div>
         </header>
-        <section id="intro" class="flex-container justify-content-between">
-            <section>
-                <section class="flex-container">
-                    <h1>PATHWISE</h1>
-                    <img src="img/path.JPG" alt="pathwise icon">
-                </section>
-                <p>Our platform is a groundbreaking project that provides transparent and comprehensive
-                    information on competitive majors at the University of Washington (UW), empowering
-                    students to make informed decisions amidst limited spots and intense competition.</p>
-                <button type="button" class="btn">Start Here</button>
-                <button type="button" class="btn">About Us</button>
+        <div class="container p-5">
+            <div class="row">
+                <div class="col">
+                    <section class="justify-content-center">
+                        <section class="flex-container align-middle">
+                            <h1>PATHWISE</h1>
+                            <img src="img/path.JPG" alt="pathwise icon" class="img-fluid">
+                        </section>
+                        <p class="w-75">Our platform is a groundbreaking project that provides transparent and comprehensive
+                            information on competitive majors at the University of Washington (UW), empowering
+                            students to make informed decisions amidst limited spots and intense competition.</p>
+                        <button type="button" class="btn btn-outline-dark">Start Here</button>
+                        <button type="button" class="btn btn-outline-dark">About Us</button>
+                    </section>
+                </div>
+                <div class="col col-lg-2">
+                    <img class="img-fluid" src="img/pathwisebook.JPG" alt="book">
+                </div>
+            </div>
+        </div>
+        <div class="container p-5">
+            <section class="header-center">
+                <h2>OUR MISSION</h2>
+                <p>We aim to make our service accessible and
+                    intuitive, and use data collected exclusively from
+                    departmental offices at the UW and student
+                    submissions.</p>
             </section>
-            <img src="img/pathwisebook.JPG" alt="book">
-        </section>
-        <section class="header-center">
-            <h2>OUR MISSION</h2>
-            <p>We aim to make our service accessible and
-                intuitive, and use data collected exclusively from
-                departmental offices at the UW and student
-                submissions.</p>
-        </section>
-        <div class="pt-5 pb-5 text-center">
+        </div>
+        <div class="container p-5 text-center">
             <div class="row-alternate">
                 <h2 class="heading2-text text-center">SUPPORTED MAJORS</h2>
             </div>
@@ -76,47 +85,49 @@
                 </div>
               </div>
         </div>
-        <footer class="footer px-4">
-            <div>
-                <hr>
-                <div class="row">
-                <div class="white-footer col-lg-6">
-                    <h4 class="barlow">PATHWISE</h4>
-                    <p>
-                        Our platform provides information on competitive majors at UW, aiding students in making informed decisions.
-                    </p>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <h4 class="barlow">RESOURCES</h4>
-                    <ul class="white-footer list-unstyled">
-                        <li class="white-footer-li"><a class="white-footer-li" href="#">Documentation</a></li>
-                        <li class="white-footer-li"><a class="white-footer-li" href="#">Blog</a></li>
-                        <li class="white-footer-li"><a class="white-footer-li" href="#">Status</a></li>
-                        <li class="white-footer-li"><a class="white-footer-li" href="#">Terms of Service</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-3 col-md-6">
-                    <h4 class="barlow">CONTACT</h4>
-                    <ul class="white-footer list-unstyled">
-                    <li class="white-footer-li"><a class="white-footer-li" href="#">Twitter</a></li>
-                    <li class="white-footer-li"><a class="white-footer-li" href="#">Careers</a></li>
-                    <li class="white-footer-li"><a class="white-footer-li" href="#">Support</a></li>
-                    <li class="white-footer-li"><a class="white-footer-li" href="#">Discord</a></li>
-                    </ul>
-                </div>
-                </div>
-                <hr>
-                <div class="row">
-                <div class="col-12">
-                    <div class="panel panel-default">
-                    <div class="panel-body">
-                        <p style="margin-bottom: 1rem;" class="barlow">&copy; 2023 PATHWISE. All rights reserved.</p>
+        <div class="container p-5">
+            <footer class="footer px-4">
+                <div>
+                    <hr>
+                    <div class="row">
+                    <div class="white-footer col-lg-6">
+                        <h4 class="barlow">PATHWISE</h4>
+                        <p>
+                            Our platform provides information on competitive majors at UW, aiding students in making informed decisions.
+                        </p>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <h4 class="barlow">RESOURCES</h4>
+                        <ul class="white-footer list-unstyled">
+                            <li class="white-footer-li"><a class="white-footer-li" href="#">Documentation</a></li>
+                            <li class="white-footer-li"><a class="white-footer-li" href="#">Blog</a></li>
+                            <li class="white-footer-li"><a class="white-footer-li" href="#">Status</a></li>
+                            <li class="white-footer-li"><a class="white-footer-li" href="#">Terms of Service</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-lg-3 col-md-6">
+                        <h4 class="barlow">CONTACT</h4>
+                        <ul class="white-footer list-unstyled">
+                        <li class="white-footer-li"><a class="white-footer-li" href="#">Twitter</a></li>
+                        <li class="white-footer-li"><a class="white-footer-li" href="#">Careers</a></li>
+                        <li class="white-footer-li"><a class="white-footer-li" href="#">Support</a></li>
+                        <li class="white-footer-li"><a class="white-footer-li" href="#">Discord</a></li>
+                        </ul>
+                    </div>
+                    </div>
+                    <hr>
+                    <div class="row">
+                    <div class="col-12">
+                        <div class="panel panel-default">
+                        <div class="panel-body">
+                            <p style="margin-bottom: 1rem;" class="barlow">&copy; 2023 PATHWISE. All rights reserved.</p>
+                        </div>
+                        </div>
                     </div>
                     </div>
                 </div>
-                </div>
-            </div>
-        </footer>
+            </footer>
+        </div>
     </body>
 
     <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
