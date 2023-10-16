@@ -74,12 +74,8 @@ body{
 }
 
 #our-mission{
-    margin: 100px 50px;
+    margin: auto;
     display: flex;
     flex-direction: column;
     text-align: center;
-}
-
-#our-mission p{
-    padding: 0px 350px;
 }
