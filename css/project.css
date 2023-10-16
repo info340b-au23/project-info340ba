@@ -73,9 +73,23 @@ body{
     display: flex;
 }
 
-#our-mission{
-    margin: auto;
+.header-center{
+    margin-top: 100px;
     display: flex;
     flex-direction: column;
     text-align: center;
+}
+
+#forum button{
+    background-color: black;
+    color: white;
+}
+
+#forum{
+    margin: 100px;
+}
+
+#authors{
+    display: block;
+    margin: 100px auto;
 }
