@@ -3,6 +3,8 @@ body{
     margin-right: 100px;
 }
 
+/* nav */
+
 nav li{
     display: inline;
     padding-right: 5rem;
@@ -17,10 +19,32 @@ nav a{
     text-decoration: none;
 }
 
-@media (min-width: 768px) {
-    
+/* intro */
+
+#intro{
+    margin: 100px 50px;
 }
 
-@media (min-width: 992px) {
-    
+#intro button{
+    border: 1px solid black;
+}
+
+#intro button:last-child{
+    background-color: black;
+    color: white;
+}
+
+.flex-container{
+    display: flex;
+}
+
+#our-mission{
+    margin: 100px 50px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+#our-mission p{
+    padding: 0px 350px;
 }
