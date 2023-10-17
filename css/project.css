@@ -74,6 +74,5 @@
 }
 
 .navbar-border {
-    border-bottom-width: 5px solid;
-    border-bottom-color: black;
+    border-bottom: 2px solid black;
 }
