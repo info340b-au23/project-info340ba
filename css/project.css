@@ -72,3 +72,8 @@
 .img-fluid {
     max-width: 100%;
 }
+
+.navbar-border {
+    border-bottom-width: 5px solid;
+    border-bottom-color: black;
+}
