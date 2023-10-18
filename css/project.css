@@ -7,6 +7,23 @@
     }
 }
 
+html {
+    font-size: 14px; /* or any desired size */
+}
+
+body {
+    font-family: 'Barlow', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Barlow';
+    font-weight: bold;
+}
+
+p {
+    font-family: 'JetBrains Mono', monospace;
+}
+
 .logos {
     overflow: hidden;
     padding: 30px 0;
@@ -75,4 +92,39 @@
 
 .navbar-border {
     border-bottom: 2px solid black;
+}
+
+.nav-icon {
+    width: 2rem;
+}
+
+.custom-button-primary {
+    border-radius: 0;
+    border-width: 0.15rem;
+    font-weight: bold;
+    width: 7rem;
+}
+
+.custom-button-secondary {
+    border-radius: 0;
+    border-width: 0.15rem;
+    border-color: black;
+    color: white;
+    background-color: black;
+    font-weight: bold;
+    width: 7rem;
+}
+
+.custom-button-secondary:hover {
+    background-color: white;
+    border-color: black;
+    color: black;
+}
+
+.white-footer-li {
+    color: black;
+}
+
+.white-footer-li:hover {
+    color: black;
 }
