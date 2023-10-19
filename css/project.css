@@ -138,3 +138,8 @@ p {
     border-color: black;
     border-width: 0.15rem;
 }
+
+#drawings img {
+    border-bottom: 2px solid black;
+    border-top: 2px solid black;
+}
