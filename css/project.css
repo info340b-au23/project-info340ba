@@ -105,6 +105,10 @@ p {
     width: 7rem;
 }
 
+.custom-button-primary:hover {
+    background-color: black;
+}
+
 .custom-button-secondary {
     border-radius: 0;
     border-width: 0.15rem;
@@ -127,4 +131,10 @@ p {
 
 .white-footer-li:hover {
     color: black;
+}
+
+.custom-navbar-toggler {
+    border-radius: 0;
+    border-color: black;
+    border-width: 0.15rem;
 }
