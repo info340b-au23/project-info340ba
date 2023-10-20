@@ -160,10 +160,19 @@ p, tr {
     border: 1px solid rgb(114, 114, 114);
 }
 
-td:nth-child(1), td:nth-child(3) {
+td:nth-child(1) {
     width: 15rem;
 }
 
-td:nth-child(2), td:nth-child(4) {
-    width: 15rem;
+td:nth-child(2) {
+    width: 5rem;
+}
+
+td:nth-child(3) {
+    width: 10rem;
+}
+
+
+td:nth-child(4) {
+    width: 20rem;
 }
