@@ -176,3 +176,8 @@ td:nth-child(3) {
 td:nth-child(4) {
     width: 20rem;
 }
+
+#jesse {
+    height: 175px;
+    width: 175px;
+}
