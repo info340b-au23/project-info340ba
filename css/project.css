@@ -194,7 +194,7 @@ td:nth-child(4) {
     width: 100px;
 }
 
-a {
+.internship-pg-link {
     color: black;
     text-decoration: underline;
 }
