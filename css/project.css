@@ -45,12 +45,10 @@ p, tr {
 
 .logos:before {
     left: 0;
-    background: linear-gradient(to left, rgba(255, 255, 255, 0), white);
 }
 
 .logos:after {
     right: 0;
-    background: linear-gradient(to right, rgba(255, 255, 255, 0), white);
 }
 
 .logos-slide {
@@ -63,15 +61,6 @@ p, tr {
     margin: 0 40px;
 }
 
-#intro button{
-    border: 1px solid black;
-}
-
-#intro button:last-child{
-    background-color: black;
-    color: white;
-}
-
 .flex-container{
     display: flex;
 }
@@ -82,7 +71,7 @@ p, tr {
     text-align: center;
 }
 
-#forum button{
+.forum button{
     background-color: black;
     color: white;
 }
@@ -140,7 +129,7 @@ p, tr {
     border-width: 0.15rem;
 }
 
-#drawings img {
+.drawings img {
     border-bottom: 2px solid black;
     border-top: 2px solid black;
 }
@@ -172,11 +161,22 @@ td:nth-child(3) {
     width: 10rem;
 }
 
-
 td:nth-child(4) {
     width: 20rem;
 }
 
-#jesse {
-    height: 175px;
+.drawings {
+    height: 150px; 
+    width: 100%;
+}
+
+@media (min-width: 768px) {
+    .logos:before {
+        left: 0;
+        background: linear-gradient(to left, rgba(255, 255, 255, 0), white);
+    }
+    .logos:after {
+        right: 0;
+        background: linear-gradient(to right, rgba(255, 255, 255, 0), white);
+    }
 }
