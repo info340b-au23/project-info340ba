@@ -68,15 +68,15 @@
         </div>
     </div>
     <div class="container p-5">
-    <div class="row">
-        <div class="col-md-12 text-center">
-            <h3>Search For a Major:</h3>
-            <input type="text" id="searchInput" class="form-control mb-3" placeholder="Enter a major name">
-            <div id="majorCards">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h3>Search For a Major:</h3>
+                <input type="text" id="searchInput" class="form-control mb-3" placeholder="Enter a major name">
+                <div id="majorCards">
 
+                </div>
             </div>
         </div>
-    </div>
     </div>
 
     <!--Placeholder for now-->
@@ -195,19 +195,31 @@
         </footer>
     </div>
     <script>
+
+        //looked up ways to implement my search feature, came to conlusion below javascript functionality would suit our needs
+        //added event listener to check when the Document Object Model content in the page is loaded
+        //here is the documentation for event listeners: https://www.w3schools.com/js/js_htmldom_eventlistener.asp
         document.addEventListener("DOMContentLoaded", function () {
-            const cards = document.querySelectorAll(".card"); // Select all cards
+
+            //selects all cards
+            const cards = document.querySelectorAll(".card");
             const majorCardsContainer = document.getElementById("majorCards");
 
+            //added event listener to check when there is input in the search box
+            //For example, when user starts typing in the box
             document.getElementById("searchInput").addEventListener("input", function () {
+
+                //gets, trims, stores, and converts the user input value to lower case
                 const searchTerm = this.value.trim().toLowerCase();
 
-                // Hide all cards
+                // Hides all cards initially
                 cards.forEach(function (card) {
                     card.classList.add("hidden-card");
                 });
 
-                // Show matching cards
+                // Shows matching cards according the user-defined input in search box
+                // by iterating through card elements (major names) to see if any match the user input
+                // if they do, then the hidden-card class is removed so the card can be displayed.
                 cards.forEach(function (card) {
                     const title = card.querySelector("h3").textContent.toLowerCase();
 
