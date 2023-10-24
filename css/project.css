@@ -1,20 +1,21 @@
 @keyframes slide {
-    from {
-        transform: translateX(0);
-    }
+  from {
+    transform: translateX(0);
+  }
 
-    to {
-        transform: translateX(-100%);
-    }
+  to {
+    transform: translateX(-100%);
+  }
 }
 
 html {
-    font-size: 14px;
-    /* or any desired size */
+  font-size: 14px;
+  /* or any desired size */
 }
 
+/* Font Selections */
 body {
-    font-family: 'Barlow', sans-serif;
+  font-family: "Barlow", sans-serif;
 }
 
 h1,
@@ -24,203 +25,217 @@ h4,
 h5,
 h6,
 th {
-    font-family: 'Barlow';
-    font-weight: bold;
+  font-family: "Barlow";
+  font-weight: bold;
 }
 
 p,
 tr {
-    font-family: 'JetBrains Mono', monospace;
+  font-family: "JetBrains Mono", monospace;
 }
 
+/* Banner */
+
 .logos {
-    overflow: hidden;
-    padding: 30px 0;
-    background: none;
-    white-space: nowrap;
-    position: relative;
+  overflow: hidden;
+  padding: 30px 0;
+  background: none;
+  white-space: nowrap;
+  position: relative;
 }
 
 .logos:before,
 .logos:after {
-    position: absolute;
-    top: 0;
-    width: 250px;
-    height: 100%;
-    content: "";
-    z-index: 2;
-    color: black;
+  position: absolute;
+  top: 0;
+  width: 250px;
+  height: 100%;
+  content: "";
+  z-index: 2;
+  color: black;
 }
 
 .logos:before {
-    left: 0;
+  left: 0;
 }
 
 .logos:after {
-    right: 0;
+  right: 0;
 }
 
 .logos-slide {
-    display: inline-block;
-    animation: 35s slide infinite linear;
+  display: inline-block;
+  animation: 35s slide infinite linear;
 }
 
 .logos-slide img {
-    height: 50px;
-    margin: 0 40px;
+  height: 50px;
+  margin: 0 40px;
 }
 
 .hidden-card {
-    display: none;
+  display: none;
 }
 
+/* Landing Page CTA */
+
 .mission-arrow {
-    width: 1rem;
-    margin-bottom: 0.25rem;
+  width: 1rem;
+  margin-bottom: 0.25rem;
 }
 
 .descending-sort-triangle {
-    width: 0.5rem;
-    display: none;
-}
-
-.flex-container {
-    display: flex;
+  width: 0.5rem;
+  display: none;
 }
 
 .header-center {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
 }
 
 .forum button {
-    background-color: black;
-    color: white;
+  background-color: black;
+  color: white;
 }
 
 .img-fluid {
-    max-width: 100%;
+  max-width: 100%;
 }
 
+/* Navbar Styling */
+
 .navbar-border {
-    border-bottom: 2px solid black;
+  border-bottom: 2px solid black;
 }
 
 .nav-icon {
-    width: 2rem;
-}
-
-.custom-button-primary {
-    border-radius: 0;
-    border-width: 0.15rem;
-    font-weight: bold;
-    width: 7rem;
-}
-
-.custom-button-primary:hover {
-    background-color: black;
-}
-
-.custom-button-secondary {
-    border-radius: 0;
-    border-width: 0.15rem;
-    border-color: black;
-    color: white;
-    background-color: black;
-    font-weight: bold;
-    width: 7rem;
-}
-
-.custom-button-secondary:hover {
-    background-color: white;
-    border-color: black;
-    color: black;
-}
-
-.white-footer-li {
-    color: black;
-}
-
-.white-footer-li:hover {
-    color: black;
+  width: 2rem;
 }
 
 .custom-navbar-toggler {
-    border-radius: 0;
-    border-color: black;
-    border-width: 0.15rem;
+  border-radius: 0;
+  border-color: black;
+  border-width: 0.15rem;
 }
 
+/* Custom Buttons */
+
+.custom-button-primary {
+  border-radius: 0;
+  border-width: 0.15rem;
+  font-weight: bold;
+  width: 7rem;
+}
+
+.custom-button-primary:hover {
+  background-color: black;
+}
+
+.custom-button-secondary {
+  border-radius: 0;
+  border-width: 0.15rem;
+  border-color: black;
+  color: white;
+  background-color: black;
+  font-weight: bold;
+  width: 7rem;
+}
+
+.custom-button-secondary:hover {
+  background-color: white;
+  border-color: black;
+  color: black;
+}
+
+/* Footer Styling */
+
+.white-footer-li {
+  color: black;
+}
+
+.white-footer-li:hover {
+  color: black;
+}
+
+/* Drawings + Cards */
+
 .drawings img {
-    border-bottom: 2px solid black;
-    border-top: 2px solid black;
+  border-bottom: 2px solid black;
+  border-top: 2px solid black;
 }
 
 .card-body h3 {
-    border-bottom: 1px solid #000;
-    padding-bottom: 5px;
-    margin-bottom: 10px;
+  border-bottom: 1px solid #000;
+  padding-bottom: 5px;
+  margin-bottom: 10px;
 }
 
 .card-header {
-    background-color: rgb(255, 255, 255);
+  background-color: rgb(255, 255, 255);
 }
 
 .card-styling {
-    border-radius: 0;
+  border-radius: 0;
 }
 
+/* Tables */
+
 .table-styling {
-    overflow-y: scroll;
-    display: block;
-    height: 20rem;
-    border: 1px solid rgb(114, 114, 114);
+  overflow-y: scroll;
+  display: block;
+  height: 20rem;
+  border: 1px solid rgb(114, 114, 114);
 }
 
 td:nth-child(1) {
-    width: 15rem;
+  width: 15rem;
 }
 
 td:nth-child(2) {
-    width: 5rem;
+  width: 5rem;
 }
 
 td:nth-child(3) {
-    width: 10rem;
+  width: 10rem;
 }
 
 td:nth-child(4) {
-    width: 20rem;
+  width: 20rem;
 }
 
 .drawings {
-    height: 75%;
-    width: 100%;
+  height: 75%;
+  width: 100%;
 }
 
+/* Internship Guide Styling */
+
 .internship-logo {
-    height: 100px;
-    width: 100px;
+  height: 100px;
+  width: 100px;
 }
 
 .internship-pg-link {
-    color: black;
-    text-decoration: underline;
+  color: black;
+  text-decoration: underline;
 }
 
+/* A lot of our media-query work is done within bootstraps grid system. */
+/* For example, our research guides page has responsive columns by screen size (md -> lg) */
 @media (min-width: 768px) {
-    .logos:before {
-        left: 0;
-        background: linear-gradient(to left, rgba(255, 255, 255, 0), white);
-    }
+  .logos:before {
+    left: 0;
+    background: linear-gradient(to left, rgba(255, 255, 255, 0), white);
+  }
 
-    .logos:after {
-        right: 0;
-        background: linear-gradient(to right, rgba(255, 255, 255, 0), white);
-    }
+  .logos:after {
+    right: 0;
+    background: linear-gradient(to right, rgba(255, 255, 255, 0), white);
+  }
 
-    .descending-sort-triangle {
-        display: inline-block;
-    }
+  .descending-sort-triangle {
+    display: inline-block;
+  }
 }

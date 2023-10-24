@@ -56,7 +56,7 @@
             <div class="col-md-8">
                 <section class="justify-content-center">
                     <section class="flex-container align-middle">
-                        <h1>WHICH CLASSES SHOULD I TAKE?</h1>
+                        <h2>WHICH CLASSES SHOULD I TAKE?</h2>
                     </section>
                     <p>At the University of Washington, it is important to carefully select your classes to optimize
                         your experience and educational progress. </p>
@@ -73,7 +73,6 @@
                 <h3>Search For a Major:</h3>
                 <input type="text" id="searchInput" class="form-control mb-3" placeholder="Enter a major name">
                 <div id="majorCards">
-
                 </div>
             </div>
         </div>
@@ -87,9 +86,9 @@
                 <div class="card m-2 hidden-card">
                     <div class="card-body">
                         <h3>Informatics</h3>
-                        <h5>INFO 200</h5>
+                        <h4>INFO 200</h4>
                         <p>Introductory Intellectual Foundations of Informatics</p>
-                        <h5>INFO 201</h5>
+                        <h4>INFO 201</h4>
                         <p>Introductory Foundational Skills of Informatics</p>
                     </div>
                 </div>
@@ -100,9 +99,9 @@
                 <div class="card m-2 hidden-card">
                     <div class="card-body">
                         <h3>Computer Science</h3>
-                        <h5>CS142</h5>
+                        <h4>CS142</h4>
                         <p>Basic and fundamental Java Programming class.</p>
-                        <h5>CS143</h5>
+                        <h4>CS143</h4>
                         <p>Expanding upon CS142, advanced fundamentals Java programming class.</p>
                     </div>
                 </div>
@@ -113,9 +112,9 @@
                 <div class="card m-2 hidden-card">
                     <div class="card-body">
                         <h3>Mechanical Engineering</h3>
-                        <h5>ME 123</h5>
+                        <h4>ME 123</h4>
                         <p>Introduction to Visualization and Computer-aided Design </p>
-                        <h5>ME 331</h5>
+                        <h4>ME 331</h4>
                         <p>Introduction to Heat Transfer</p>
                     </div>
                 </div>
@@ -126,9 +125,9 @@
                 <div class="card m-2 hidden-card">
                     <div class="card-body">
                         <h3>Nursing</h3>
-                        <h5>NURS 303</h5>
+                        <h4>NURS 303</h4>
                         <p>Foundations of Professional Nursing Practice</p>
-                        <h5>NURS 304</h5>
+                        <h4>NURS 304</h4>
                         <p>Foundations in Pharmacotherapeutics and Pathophysiology</p>
                     </div>
                 </div>
@@ -139,9 +138,9 @@
                 <div class="card m-2 hidden-card">
                     <div class="card-body">
                         <h3>Electrical Engineering</h3>
-                        <h5>EE 215</h5>
+                        <h4>EE 215</h4>
                         <p>Foundations of Electrical Engineering </p>
-                        <h5>CS143</h5>
+                        <h4>CS143</h4>
                         <p>Expanding upon CS142, advanced fundamentals Java programming class.</p>
                     </div>
                 </div>
@@ -195,34 +194,23 @@
         </footer>
     </div>
     <script>
-
-        //looked up ways to implement my search feature, came to conlusion below javascript functionality would suit our needs
-        //added event listener to check when the Document Object Model content in the page is loaded
-        //here is the documentation for event listeners: https://www.w3schools.com/js/js_htmldom_eventlistener.asp
+        // looked up ways to implement my search feature, came to the conclusion below javascript functionality would suit our needs
+        // added event listener to check when the Document Object Model content in the page is loaded
+        // here is the documentation for event listeners: https://www.w3schools.com/js/js_htmldom_eventlistener.asp
         document.addEventListener("DOMContentLoaded", function () {
-
-            //selects all cards
             const cards = document.querySelectorAll(".card");
             const majorCardsContainer = document.getElementById("majorCards");
 
-            //added event listener to check when there is input in the search box
-            //For example, when user starts typing in the box
             document.getElementById("searchInput").addEventListener("input", function () {
-
-                //gets, trims, stores, and converts the user input value to lower case
                 const searchTerm = this.value.trim().toLowerCase();
-
-                // Hides all cards initially
                 cards.forEach(function (card) {
                     card.classList.add("hidden-card");
                 });
-
                 // Shows matching cards according the user-defined input in search box
                 // by iterating through card elements (major names) to see if any match the user input
                 // if they do, then the hidden-card class is removed so the card can be displayed.
                 cards.forEach(function (card) {
                     const title = card.querySelector("h3").textContent.toLowerCase();
-
                     if (title.includes(searchTerm)) {
                         card.classList.remove("hidden-card");
                     }
