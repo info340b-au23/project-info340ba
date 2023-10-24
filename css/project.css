@@ -74,6 +74,16 @@ tr {
     display: none;
 }
 
+.mission-arrow {
+    width: 1rem;
+    margin-bottom: 0.25rem;
+}
+
+.descending-sort-triangle {
+    width: 0.5rem;
+    display: none;
+}
+
 .flex-container {
     display: flex;
 }
@@ -208,5 +218,9 @@ td:nth-child(4) {
     .logos:after {
         right: 0;
         background: linear-gradient(to right, rgba(255, 255, 255, 0), white);
+    }
+
+    .descending-sort-triangle {
+        display: inline-block;
     }
 }
