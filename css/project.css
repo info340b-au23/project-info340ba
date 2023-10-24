@@ -189,6 +189,16 @@ td:nth-child(4) {
     width: 100%;
 }
 
+.internship-logo {
+    height: 100px;
+    width: 100px;
+}
+
+a {
+    color: black;
+    text-decoration: underline;
+}
+
 @media (min-width: 768px) {
     .logos:before {
         left: 0;
