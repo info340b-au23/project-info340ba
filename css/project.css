@@ -2,25 +2,34 @@
     from {
         transform: translateX(0);
     }
+
     to {
         transform: translateX(-100%);
     }
 }
 
 html {
-    font-size: 14px; /* or any desired size */
+    font-size: 14px;
+    /* or any desired size */
 }
 
 body {
     font-family: 'Barlow', sans-serif;
 }
 
-h1, h2, h3, h4, h5, h6, th {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+th {
     font-family: 'Barlow';
     font-weight: bold;
 }
 
-p, tr {
+p,
+tr {
     font-family: 'JetBrains Mono', monospace;
 }
 
@@ -61,17 +70,21 @@ p, tr {
     margin: 0 40px;
 }
 
-.flex-container{
+.hidden-card {
+    display: none;
+}
+
+.flex-container {
     display: flex;
 }
 
-.header-center{
+.header-center {
     display: flex;
     flex-direction: column;
     text-align: center;
 }
 
-.forum button{
+.forum button {
     background-color: black;
     color: white;
 }
@@ -134,8 +147,14 @@ p, tr {
     border-top: 2px solid black;
 }
 
+.card-body h3 {
+    border-bottom: 1px solid #000;
+    padding-bottom: 5px;
+    margin-bottom: 10px;
+}
+
 .card-header {
-    background-color:rgb(255, 255, 255);
+    background-color: rgb(255, 255, 255);
 }
 
 .card-styling {
@@ -166,7 +185,7 @@ td:nth-child(4) {
 }
 
 .drawings {
-    height: 75%; 
+    height: 75%;
     width: 100%;
 }
 
@@ -175,6 +194,7 @@ td:nth-child(4) {
         left: 0;
         background: linear-gradient(to left, rgba(255, 255, 255, 0), white);
     }
+
     .logos:after {
         right: 0;
         background: linear-gradient(to right, rgba(255, 255, 255, 0), white);
