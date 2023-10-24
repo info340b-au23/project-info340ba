@@ -180,3 +180,13 @@ td:nth-child(4) {
 #jesse {
     height: 175px;
 }
+
+.internship-logo {
+    height: 100px;
+    width: 100px;
+}
+
+a {
+    color: black;
+    text-decoration: underline;
+}
