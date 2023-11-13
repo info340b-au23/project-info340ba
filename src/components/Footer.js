@@ -3,7 +3,7 @@ import React from 'react';
 export function Footer() {
     return (
         <div className="container">
-            <footer className="footer px-4">
+            <footer className="footer">
                 <div>
                     <hr />
                     <div className="row">
