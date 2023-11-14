@@ -5,6 +5,7 @@ import { HomePage } from './HomePage.js';
 import { Footer } from './Footer.js';
 import { NavBar } from './NavBar.js';
 import { Banner } from './Banner.js';
+import { About } from './About.js';
 
 export default function App() {
     return (
@@ -13,7 +14,7 @@ export default function App() {
             <Routes>
                 <Route path="index" element={<HomePage />}/>
                 <Route path="/" element={<HomePage />}/>
-                <Route path='about' element={<HomePage />}/>
+                <Route path='about' element={<About />}/>
             </Routes>
             <Banner />
             <Footer />
