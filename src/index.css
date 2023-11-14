@@ -1,3 +1,5 @@
+@import url('https://fonts.googleapis.com/css2?family=Barlow:wght@400;700&family=JetBrains+Mono&display=swap');
+
 @keyframes slide {
   from {
     transform: translateX(0);
@@ -238,4 +240,12 @@ td:nth-child(4) {
   .descending-sort-triangle {
     display: inline-block;
   }
+}
+
+#growingIcon {
+  transition: transform 0.1s ease;
+}
+
+#growingIcon:hover {
+  transform: scale(1.1);
 }

@@ -13,7 +13,6 @@ export default function App() {
             <NavBar />
             <Routes>
                 <Route path="index" element={<HomePage />}/>
-                <Route path="/" element={<HomePage />}/>
                 <Route path='about' element={<About />}/>
             </Routes>
             <Banner />

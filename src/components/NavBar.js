@@ -1,7 +1,8 @@
 import React from 'react';
 import { NavLink } from 'react-router-dom'
+import '../index.css';
 
-export function NavBar() {
+export function NavBar(props) {
     return (
         <div className="container">
             <nav className="navbar-border navbar navbar-expand-lg navbar-light bg-white">
@@ -9,28 +10,26 @@ export function NavBar() {
                     <span className="navbar-toggler-icon"></span>
                 </button>
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul className="navbar-nav mr-auto">
-                    <li className="nav-item active">
-                    <NavLink className="font-weight-bold nav-link" to="index">Home</NavLink>
-                    </li>
-                    <li className="nav-item">
-                    <NavLink className="font-weight-bold nav-link" to="crowdsource">Crowd Source</NavLink>
-                    </li>
-                    <li className="nav-item">
-                        <NavLink className="font-weight-bold nav-link" to="guides">Guides</NavLink>
-                    </li>
-                    <li className="nav-item">
-                        <NavLink className="font-weight-bold nav-link" to="about">About</NavLink>
-                    </li>
-                </ul>
-                <div className="p-1">
-                    <img className="nav-icon" src="img/github.svg" alt="github company logo"/>
-                </div>
-                <div className="p-1">
-                    <a>
-                        <img className="nav-icon" src="img/discord.svg" alt="discord company logo"/>
+                    <ul className="navbar-nav mr-auto">
+                        <li className="nav-item active">
+                            <NavLink className="font-weight-bold nav-link" to="index">Home</NavLink>
+                        </li>
+                        <li className="nav-item">
+                            <NavLink className="font-weight-bold nav-link" to="crowdsource">Crowd Source</NavLink>
+                        </li>
+                        <li className="nav-item">
+                            <NavLink className="font-weight-bold nav-link" to="guides">Guides</NavLink>
+                        </li>
+                        <li className="nav-item">
+                            <NavLink className="font-weight-bold nav-link" to="about">About</NavLink>
+                        </li>
+                    </ul>
+                    <a href="https://discord.com/" target="#">
+                        <img id="growingIcon" className="nav-icon p-1" src="img/github.svg" alt="github company logo"/>
                     </a>
-                </div>
+                    <a href="https://discord.com/" target="#">
+                        <img id="growingIcon" className="nav-icon p-1" src="img/discord.svg" alt="discord company logo"/>
+                    </a>
                 </div>
             </nav>
         </div>
