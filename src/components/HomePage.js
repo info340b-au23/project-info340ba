@@ -1,5 +1,6 @@
 import React from 'react';
 import '../index.css';
+import {TableList} from './TableView';
 
 export function HomePage() {
     return (
@@ -31,6 +32,7 @@ export function HomePage() {
                         submissions.</p>
                 </div>
             </div>
+            <TableList />
         </div>
     )
 }
