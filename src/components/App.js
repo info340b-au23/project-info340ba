@@ -7,12 +7,12 @@ import { NavBar } from './NavBar.js';
 import { Banner } from './Banner.js';
 import { About } from './About.js';
 
-export default function App() {
+export default function App(props) {
     return (
         <BrowserRouter>
             <NavBar />
             <Routes>
-                <Route path="index" element={<HomePage />}/>
+                <Route path="index" element={<HomePage data={props.data}/>}/>
                 <Route path='about' element={<About />}/>
             </Routes>
             <Banner />

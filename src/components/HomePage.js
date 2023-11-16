@@ -2,7 +2,7 @@ import React from 'react';
 import '../index.css';
 import {TableList} from './TableView';
 
-export function HomePage() {
+export function HomePage(props) {
     return (
         <div>
             <div class="container p-5">
@@ -32,7 +32,11 @@ export function HomePage() {
                         submissions.</p>
                 </div>
             </div>
-            <TableList />
+            <div className="container p-5 d-flex justify-content-center">
+                <div>
+                    <TableList data={props.data}/>
+                </div>
+            </div>
         </div>
     )
 }
