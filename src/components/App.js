@@ -12,7 +12,7 @@ export default function App(props) {
         <BrowserRouter>
             <NavBar />
             <Routes>
-                <Route index element={<HomePage data={props.data}/>}/>
+                <Route index path='index' element={<HomePage data={props.data}/>}/>
                 <Route path='about' element={<About />}/>
             </Routes>
             <Banner />
