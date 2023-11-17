@@ -51,8 +51,12 @@ export function TableList(props) {
                         GPA 
                         <SortButton name="OverallGPA" onClick={handleClick} active={sortByCriteria === "OverallGPA"} ascending={sortByCriteria === "OverallGPA" && isAscending}/>
                     </th>
-                    <th>Cycle</th>
-                    <th>Advice</th>
+                    <th>Class Standing
+                        <SortButton name="Class Standing" onClick={handleClick} active={sortByCriteria === "Class Standing"} ascending={sortByCriteria === "Class Standing" && isAscending}/>
+                    </th>
+                    <th>Tags
+                        <SortButton name="Tags"/>   
+                    </th>
                 </tr>
             </thead>
             <tbody>
@@ -65,13 +69,14 @@ export function TableList(props) {
 function TableRow(props) {
     const GPA = props.alumniData.OverallGPA;
     const major = props.alumniData["What Major did you apply to?"];
+    const standing = props.alumniData["Class Standing"];
 
     return (
         <tr>
             <td>{major}</td>
             <td>{GPA}</td>
-            <td>TBA</td>
-            <td>TBA</td>
+            <td>{standing}</td>
+            <TagList alumniData={props.alumniData} />
         </tr>
     )
 }
@@ -86,4 +91,36 @@ function SortButton(props) {
         <span className={"material-icons" + iconClasses} aria-label={`sort by ${props.name}`}>sort</span>
       </button> 
     );
-} 
+};
+
+function TagList(props) {
+    const tagsList = [];
+
+    // Checks if has tags
+    if (props.alumniData["Have you completed Running Start?"] === "Yes") {
+        tagsList.push("Running Start");
+    };
+    if (props.alumniData["Have you completed a related internship?"] === "Yes") {
+        tagsList.push("Internship");
+    };
+    if (props.alumniData["Have you received any academic scholarships or awards?"] === "Yes (Partial)" || "Yes (Full)") {
+        tagsList.push("Scholarship(s)");
+    };
+
+    const tags = tagsList.map(element => {
+        return (
+            <p className='d-inline border border-success-subtle rounded-3 m-1 bg-info bg-opacity-25'>{element}</p>
+        )
+    })
+    console.log(tagsList);
+
+    return (
+        <td>
+            <div className='flex-container'>
+                <div className='d-flex flex-wrap'>
+                    {tags}
+                </div>
+            </div>
+        </td>
+    );
+};
