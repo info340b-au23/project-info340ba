@@ -21,6 +21,9 @@ export function NavBar(props) {
                             <NavLink className="font-weight-bold nav-link" to="guides">Guides</NavLink>
                         </li>
                         <li className="nav-item">
+                            <NavLink className="font-weight-bold nav-link" to="insights">Insights</NavLink>
+                        </li>
+                        <li className="nav-item">
                             <NavLink className="font-weight-bold nav-link" to="about">About</NavLink>
                         </li>
                     </ul>
