@@ -5,21 +5,21 @@ import {TableList} from './TableView';
 export function HomePage(props) {
     return (
         <div>
-            <div class="container p-5">
-                <div class="row">
-                    <div class="col-md-8"> 
-                    <section class="justify-content-center">
-                        <section class="d-flex align-middle">
+            <div className="container p-5">
+                <div className="row">
+                    <div className="col-md-8"> 
+                    <section className="justify-content-center">
+                        <section className="d-flex align-middle">
                             <h1>PATHWISE</h1>
-                            <img src="img/path.JPG" alt="pathwise icon" class="img-fluid" />
+                            <img src="img/path.JPG" alt="pathwise icon" className="img-fluid" />
                         </section>
                         <p>Our platform is a groundbreaking project that provides transparent and comprehensive
                             information on competitive majors at the University of Washington (UW), empowering
                             students to make informed decisions amidst limited spots and intense competition.</p>
                     </section>
                 </div>
-                    <div class="col-md-4 d-flex justify-content-end">
-                        <img class="img-fluid" src="img/pathwisebook.JPG" alt="a black book with a bookmark hanging out" />
+                    <div className="col-md-4 d-flex justify-content-end">
+                        <img className="img-fluid" src="img/pathwisebook.JPG" alt="a black book with a bookmark hanging out" />
                     </div>
                 </div>
             </div>

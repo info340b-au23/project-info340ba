@@ -23,8 +23,8 @@ export default function App(props) {
         return entry["What Major did you apply to?"] === selectedMajor;
     })
 
-    const applyFilter = (event) => {
-        setSelectedMajor(event.target.value);
+    const applyFilter = (major) => {
+        setSelectedMajor(major);
     }
     
     return (
