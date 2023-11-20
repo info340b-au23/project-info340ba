@@ -91,7 +91,7 @@ export function Insights(props) {
             },
             title: {
             display: true,
-            text: selectedMajor,
+            text: 'GPA Distribution Among Applicants',
             },
         },
     };
@@ -99,7 +99,7 @@ export function Insights(props) {
     return (
         <div className="d-flex flex-column container justify-content-center pt-5">
             <div className="row justify-content-center">
-                <div className="col-3">
+                <div className="col-auto">
                     <select id="majorSelect" onChange={selectMajor} className="form-select" value={selectedMajor}>
                         <option value="">Show all majors</option>
                         {optionElems}
@@ -110,12 +110,14 @@ export function Insights(props) {
                 </div>
             </div>
             <div className="row justify-content-center pt-5">
-                <AverageCard message={"Average GPA:"} average={averageCumulativeGPA}/>
-                <AverageCard message={"Average Pre-Req GPA:"} average={averagePreReqGPA}/>
-                <AverageCard message={"Average GPA Trend:"} average={averageGPATrend}/>
+                <AverageCard message={"Average GPA:"} average={averageCumulativeGPA} yourAverage={3.87}/>
+                <AverageCard message={"Average Pre-Req GPA:"} average={averagePreReqGPA} yourAverage={3.87}/>
+                <AverageCard message={"Average GPA Trend:"} average={averageGPATrend} yourAverage={null}/>
             </div>
-            <div className="d-flex row">
-                <Bar options={options} data={graphData} width={20} height={10}/>
+            <div className="d-flex row justify-content-center">
+                <div className="col-6">
+                    <Bar options={options} height={"200%"} data={graphData} />
+                </div>
             </div>
         </div>
     )
@@ -139,12 +141,23 @@ function AverageCard(props) {
         calculatedHeight = 87.5;
     }
 
+    let content;
+
+    if (props.yourAverage !== null) {
+        content = 
+            <div className="card-body">
+                <h5 className="card-title">{"Your " + props.message}</h5>
+                <p href="#" className={buttonClasses}>{props.yourAverage}</p>
+            </div>
+    }
+
     return (
         <div className="card text-center col-auto m-1">
             <div className="card-body">
                 <h5 className="card-title">{props.message}</h5>
                 <p href="#" className={buttonClasses}>{props.average}</p>
             </div>
+            {content}
             <svg width={calculatedWidth} height={calculatedHeight}>
                 <line x1="0" y1={87.5 - lineEquation(0, undefined, props.average)} x2="175" y2={87.5 - lineEquation(175, undefined, props.average)} stroke="black" strokeWidth="2"/>
             </svg>
