@@ -12,7 +12,8 @@ export default function App(props) {
         <BrowserRouter>
             <NavBar />
             <Routes>
-                <Route index path='index' element={<HomePage data={props.data}/>}/>
+                <Route path="/" element={<HomePage data={props.data} />} />
+                <Route path="/index" element={<HomePage data={props.data} />} />
                 <Route path='about' element={<About />}/>
             </Routes>
             <Banner />

@@ -11,7 +11,7 @@ export function NavBar(props) {
                 </button>
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav mr-auto">
-                        <li className="nav-item active">
+                        <li className="nav-item">
                             <NavLink className="font-weight-bold nav-link" to="index">Home</NavLink>
                         </li>
                         <li className="nav-item">

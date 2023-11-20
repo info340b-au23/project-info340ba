@@ -34,6 +34,7 @@ export function HomePage(props) {
             </div>
             <div className="container p-5 d-flex justify-content-center">
                 <div>
+                    <p>Recent Submissions: </p>
                     <TableList data={props.data}/>
                 </div>
             </div>

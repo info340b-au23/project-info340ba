@@ -212,6 +212,18 @@ td:nth-child(4) {
   width: 100%;
 }
 
+.btn-sort .flip {
+  transform: scale(1, -1);
+}
+
+.btn-sort .active {
+  color: rgb(129, 183, 205);
+}
+
+.btn-sort .white {
+  color: white;
+}
+
 /* Internship Guide Styling */
 
 .internship-logo {

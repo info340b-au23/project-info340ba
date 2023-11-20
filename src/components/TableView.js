@@ -83,13 +83,14 @@ function TableRow(props) {
 
 function SortButton(props) {
     let iconClasses = ""
-    if (props.active) { iconClasses += ` active` }
+    if (props.active) { iconClasses += ` active` };
     if (props.ascending) { iconClasses += ` flip` };
-  
+    if (props.name === "Tags") { iconClasses += ' white' };
+    
     return (
-      <button className="btn btn-sm btn-sort" name={props.name} onClick={props.onClick}>
-        <span className={"material-icons" + iconClasses} aria-label={`sort by ${props.name}`}>sort</span>
-      </button> 
+        <button className={"btn btn-sm btn-sort"} name={props.name} onClick={props.onClick}>
+            <span className={"material-icons" + iconClasses} aria-label={`sort by ${props.name}`}>sort</span>
+        </button> 
     );
 };
 
@@ -100,16 +101,19 @@ function TagList(props) {
     if (props.alumniData["Have you completed Running Start?"] === "Yes") {
         tagsList.push("Running Start");
     };
-    if (props.alumniData["Have you completed a related internship?"] === "Yes") {
-        tagsList.push("Internship");
-    };
     if (props.alumniData["Have you received any academic scholarships or awards?"] === "Yes (Partial)" || "Yes (Full)") {
         tagsList.push("Scholarship(s)");
     };
+    if (props.alumniData["Are you a transfer student?"] === 'Yes') {
+        tagsList.push("Transfer");
+    };
+    if (props.alumniData["Have you completed a related internship?"] === "Yes") {
+        tagsList.push("Internship(s)")
+    }
 
     const tags = tagsList.map(element => {
         return (
-            <p className='d-inline border border-success-subtle rounded-3 m-1 bg-info bg-opacity-25'>{element}</p>
+            <p className='d-inline border border-success-subtle rounded-3 p-1 m-1 bg-info bg-opacity-25'>{element}</p>
         )
     })
     console.log(tagsList);
