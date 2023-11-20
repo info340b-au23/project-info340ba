@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import _ from 'lodash';
+import '../index.css';
 
 export function TableList(props) { 
     // Filter file
@@ -40,7 +41,7 @@ export function TableList(props) {
     });
 
     return (
-        <table className="table-styling table table-hover">
+        <table className="table-styling table table-hover" id='infotable'>
             <thead>
                 <tr>
                     <th>
@@ -54,9 +55,7 @@ export function TableList(props) {
                     <th>Class Standing
                         <SortButton name="Class Standing" onClick={handleClick} active={sortByCriteria === "Class Standing"} ascending={sortByCriteria === "Class Standing" && isAscending}/>
                     </th>
-                    <th>Tags
-                        <SortButton name="Tags"/>   
-                    </th>
+                    <th><p className=''>Tags</p></th>
                 </tr>
             </thead>
             <tbody>
