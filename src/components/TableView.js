@@ -113,10 +113,9 @@ function TagList(props) {
 
     const tags = tagsList.map(element => {
         return (
-            <p className='d-inline border border-success-subtle rounded-3 p-1 m-1 bg-info bg-opacity-25'>{element}</p>
+            <p key={element} className='d-inline border border-success-subtle rounded-3 p-1 m-1 bg-info bg-opacity-25'>{element}</p>
         )
     })
-    console.log(tagsList);
 
     return (
         <td>
