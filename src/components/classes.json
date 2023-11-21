@@ -1,0 +1,69 @@
+[
+    {
+        "majorName": "Informatics",
+        "entries": [
+            {
+                "name": "INFO 200",
+                "desc": "Introductory Intellectual Foundations of Informatics"
+            },
+            {
+                "name": "INFO 201",
+                "desc": "Introductory Foundational Skills of Informatics"
+            }
+        ]
+    },
+    {
+        "majorName": "Computer Science",
+        "entries": [
+            {
+                "name": "CS142",
+                "desc": "Basic and fundamental Java Programming class."
+            },
+            {
+                "name": "CS143",
+                "desc": "Expanding upon CS142, advanced fundamentals Java programming class."
+            }
+        ]
+    },
+    
+    {
+        "majorName": "Mechanical Engineering",
+        "entries": [
+            {
+                "name": "ME 123",
+                "desc": "Introduction to Visualization and Computer-aided Design"
+            },
+            {
+                "name": "ME 331",
+                "desc": "Introduction to Heat Transfer"
+            }
+        ]
+    },
+    {
+        "majorName": "Electrical Engineering",
+        "entries": [
+            {
+                "name": "EE 215",
+                "desc": "Foundations of Electrical Engineering"
+            },
+            {
+                "name": "CS 143",
+                "desc": "Expanding upon CS142, advanced fundamentals Java programming class."
+            }
+        ]
+    },
+    {
+        "majorName": "Nursing",
+        "entries": [
+            {
+                "name": "NURS 303",
+                "desc": "Foundations of Professional Nursing Practice"
+            },
+            {
+                "name": "NURS 304",
+                "desc": "Foundations in Pharmacotherapeutics and Pathophysiology"
+            }
+        ]
+    }
+    
+]

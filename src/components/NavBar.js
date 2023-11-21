@@ -24,6 +24,9 @@ export function NavBar(props) {
                             <NavLink className="font-weight-bold nav-link" to="insights">Insights</NavLink>
                         </li>
                         <li className="nav-item">
+                            <NavLink className="font-weight-bold nav-link" to="classes">Classes</NavLink>
+                        </li>
+                        <li className="nav-item">
                             <NavLink className="font-weight-bold nav-link" to="about">About</NavLink>
                         </li>
                     </ul>
