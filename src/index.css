@@ -151,6 +151,18 @@ tr {
   color: black;
 }
 
+.bg-goodGrades {
+  background-color: rgba(54,162,235,0.5);
+}
+
+.bg-passingGrades {
+  background-color: rgba(255,205,86,0.5);
+}
+
+.bg-failingGrades {
+  background-color: rgba(255,99,132,0.5);
+}
+
 /* Footer Styling */
 
 .white-footer-li {

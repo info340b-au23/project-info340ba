@@ -1,6 +1,12 @@
 import React, { useState } from 'react';
-import { Bar } from 'react-chartjs-2';
+import { Bar, Pie} from 'react-chartjs-2';
 import Chart from 'chart.js/auto';
+import { Chart as ChartJS, ArcElement, Tooltip, Legend, Colors } from 'chart.js';
+
+ChartJS.register(ArcElement, Tooltip, Legend, Colors);
+
+let calculatedWidth = 0;
+let calculatedHeight = 0;
 
 export function Insights(props) {
     const [ selectedMajor, setSelectedMajor ] = useState('');
@@ -12,6 +18,8 @@ export function Insights(props) {
     const optionElems = props.majorOptions.map((major) => {
         return <option key={major} value={major}>{major}</option>
     })
+
+    Chart.defaults.font.size = 14;
     
     const handleClick = () => {
         props.applyFilterCallback(selectedMajor);
@@ -38,64 +46,6 @@ export function Insights(props) {
 
     let averageGPATrend = ((cumulativeGPATrend / props.data.length).toFixed(2));
 
-    const frequency = {};
-    props.data.forEach(item => {
-        if (item.OverallGPA !== null) {
-            if (frequency[item.OverallGPA]) {
-                frequency[item.OverallGPA] += 1;
-            } else {
-                frequency[item.OverallGPA] = 1;
-            }
-        }
-    });
-
-    const chartData = Object.keys(frequency).map(key => {
-        return { GPA: key, Frequency: frequency[key] };
-    });
-
-    const sortedEntries = Object.entries(chartData).filter(entry => entry[1].GPA !== 'null').sort((a, b) => parseFloat(a[1].GPA) - parseFloat(b[1].GPA));
-
-    const sortedObject = sortedEntries.map((entry) => {
-        return { GPA: entry[1].GPA, Frequency: entry[1].Frequency}
-    })
-
-    let labels = [];
-    sortedObject.map((entry) => {
-        labels.push(entry.GPA);
-    })
-
-    let frequencies = [];
-    sortedObject.map((entry) => {
-        frequencies.push(entry.Frequency);
-    })
-
-    console.log(labels);
-
-    const graphData = {
-        labels,
-        datasets: [
-            {
-            label: selectedMajor,
-            data: frequencies,
-            backgroundColor: 'rgba(13, 202, 240, 50)',
-            },
-        ],
-    };
-
-    const options = {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-            legend: {
-            position: 'top',
-            },
-            title: {
-            display: true,
-            text: 'GPA Distribution Among Applicants',
-            },
-        },
-    };
-
     return (
         <div className="d-flex flex-column container justify-content-center pt-5">
             <div className="row justify-content-center">
@@ -110,35 +60,46 @@ export function Insights(props) {
                 </div>
             </div>
             <div className="row justify-content-center pt-5">
-                <AverageCard message={"Average GPA:"} average={averageCumulativeGPA} yourAverage={3.87}/>
-                <AverageCard message={"Average Pre-Req GPA:"} average={averagePreReqGPA} yourAverage={3.87}/>
+                <AverageCard message={"Average Overall GPA:"} average={averageCumulativeGPA} yourAverage={3.87}/>
+                <AverageCard message={"Average Pre-Req GPA:"} average={averagePreReqGPA} yourAverage={3.55}/>
                 <AverageCard message={"Average GPA Trend:"} average={averageGPATrend} yourAverage={null}/>
             </div>
-            <div className="d-flex row justify-content-center">
-                <div className="col-6">
-                    <Bar options={options} height={"200%"} data={graphData} />
+            <div className="d-flex flex-column justify-content-center text-center p-5">
+                <div>
+                    <BarChart data={props.data} selectedMajor={selectedMajor} field={"OverallGPA"} title={"Overall GPA Distribution Among Applicants"}/>
                 </div>
+                <div>
+                    <BarChart data={props.data} selectedMajor={selectedMajor} field={"preReqGPA"} title={"Overall preReq-GPA Distribution Among Applicants"}/>
+                </div>
+            </div>
+            <div className="row justify-content-center">
+                <PieChartCard data={props.data} selectedMajor={selectedMajor} field={"How many transfer credits do you have? (if applicable)"} title={"Transfer Credits Amongst Applicants"}/>
+                <PieChartCard data={props.data} selectedMajor={selectedMajor} field={"Class Standing"} title={"Class Standing"}/>
+                <PieChartCard data={props.data} selectedMajor={selectedMajor} field={"Have you received any academic scholarships or awards?"} title={"Students on Scholarship"}/>
             </div>
         </div>
     )
 }
 
 function AverageCard(props) {
-    let buttonClasses = "bg-opacity-50 d-inline border border-success-subtle rounded-3 p-1";
+    let buttonClasses = "d-inline border border-success-subtle rounded-3 p-1";
     if (props.average >= 3.75) {
-        buttonClasses += " bg-info";
+        buttonClasses += " bg-goodGrades";
     } else if (props.average >= 3.5) {
-        buttonClasses += " bg-success";
+        buttonClasses += " bg-passingGrades";
     } else {
-        buttonClasses += " bg-warning";
+        buttonClasses += " bg-failingGrades";
     }
 
-    let calculatedWidth = 0;
-    let calculatedHeight = 0;
+    let graph;
 
     if (props.message === "Average GPA Trend:") {
-        calculatedWidth = 175;
-        calculatedHeight = 87.5;
+        calculatedWidth = 285;
+        calculatedHeight = calculatedWidth / 2;
+        graph =
+            <svg width={calculatedWidth} height={calculatedHeight}>
+                <line x1="0" y1={calculatedHeight - lineEquation(0, undefined, props.average)} x2={calculatedWidth} y2={calculatedHeight - lineEquation(calculatedWidth, undefined, props.average)} stroke="black" strokeWidth="2"/>
+            </svg>
     }
 
     let content;
@@ -152,23 +113,139 @@ function AverageCard(props) {
     }
 
     return (
-        <div className="card text-center col-auto m-1">
+        <div className="card text-center col-auto m-1 text-center" style={{width: "22rem"}}>
             <div className="card-body">
                 <h5 className="card-title">{props.message}</h5>
                 <p href="#" className={buttonClasses}>{props.average}</p>
             </div>
             {content}
-            <svg width={calculatedWidth} height={calculatedHeight}>
-                <line x1="0" y1={87.5 - lineEquation(0, undefined, props.average)} x2="175" y2={87.5 - lineEquation(175, undefined, props.average)} stroke="black" strokeWidth="2"/>
-            </svg>
+            {graph}
         </div>
     )
 }
 
 function lineEquation(xValue, yValue, zValue) {
     if (yValue === undefined) {
-        return (((xValue - 87.5) * (zValue - 5))/(10)) + (175/4);
+        return (((xValue - calculatedHeight) * (zValue - 5))/(10)) + (calculatedWidth/4);
     } else {
         return null;
     }
+}
+
+function BarChart(props) {
+    const frequenciesByField = {};
+    props.data.forEach(item => {
+        if (item[props.field] !== null) {
+            if (frequenciesByField[item[props.field]]) {
+                frequenciesByField[item[props.field]] += 1;
+            } else {
+                frequenciesByField[item[props.field]] = 1;
+            }
+        }
+    });
+
+    const frequenciesMappedByKey = Object.keys(frequenciesByField).map(key => {
+        return { Field: key, Frequency: frequenciesByField[key] };
+    });
+
+    const sortedEntries = Object.entries(frequenciesMappedByKey).filter(entry => entry[1].Field !== 'null' && entry[1].Field !== '' && entry[1].Field !== "Below 2.0").sort((a, b) => parseFloat(a[1].Field) - parseFloat(b[1].Field));
+
+    const sortedObject = sortedEntries.map((entry) => {
+        return { Field: entry[1].Field, Frequency: entry[1].Frequency}
+    })
+
+    let labels = [];
+    let frequencies = [];
+    sortedObject.forEach(entry => {
+        labels.push(entry.Field);
+        frequencies.push(entry.Frequency);
+    })
+
+    const graphData = {
+        labels,
+        datasets: [
+            {
+            label: props.selectedMajor,
+            data: frequencies,
+            },
+        ],
+    };
+
+    const options = {
+        responsive: true,
+        maintainAspectRatio: false,
+        plugins: {
+            legend: {
+                display: false,
+                position: 'top',
+            },
+            title: {
+            display: true,
+            text: props.title,
+            },
+        },
+    };
+
+    return (
+        <Bar options={options} height={"200%"} data={graphData} />
+    )
+}
+
+function PieChartCard(props) {
+    const frequenciesByField = {};
+    props.data.forEach(item => {
+        if (item[props.field] !== null && item[props.field] !== "") {
+            if (frequenciesByField[item[props.field]]) {
+                frequenciesByField[item[props.field]] += 1;
+            } else {
+                frequenciesByField[item[props.field]] = 1;
+            }
+        }
+    });
+
+    const frequenciesMappedByKey = Object.keys(frequenciesByField).map(key => {
+        return { Field: key, Frequency: frequenciesByField[key] };
+    });
+
+    let labels = [];
+    let frequencies = [];
+    // let randColors = []; -> for random colors (if needed!)
+    frequenciesMappedByKey.forEach(entry => {
+        labels.push(entry.Field);
+        frequencies.push(entry.Frequency);
+        // randColors.push(`rgb(${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)})`);
+    })
+
+    const graphData = {
+        labels,
+        datasets: [
+            {
+            label: 'Number of Students' + props.selectedMajor,
+            data: frequencies, // removing randColors here makes the default palette appear
+            },
+        ],
+    }
+
+    const options = {
+        responsive: true,
+        maintainAspectRatio: true,
+        plugins: {
+            legend: {
+            position: 'top',
+            },
+            title: {
+            display: true,
+            text: props.title,
+            },
+        },
+    };
+
+    console.log(labels, frequencies);
+    return (
+        <div className="card text-center col-auto m-1 text-center" style={{width: "22rem", height: "22rem"}}>
+            <div className="card-body">
+                <Pie options={options} data={graphData} />
+            </div>
+        </div>
+    )
 }
