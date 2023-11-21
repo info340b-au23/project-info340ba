@@ -313,3 +313,10 @@ td:nth-child(4) {
 #growingIcon:hover {
   transform: scale(1.1);
 }
+
+/* Form Section */
+.formbold-input-group {
+  display: flex;
+  flex-direction: column;
+  font-family: "Barlow", sans-serif;
+}

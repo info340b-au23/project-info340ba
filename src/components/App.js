@@ -7,6 +7,7 @@ import { NavBar } from './NavBar.js';
 import { Banner } from './Banner.js';
 import { About } from './About.js';
 import { Insights } from './Insights.js';
+import { CrowdSource } from './CrowdSource.js';
 
 export default function App(props) {
     // form filtering for insights page
@@ -31,6 +32,7 @@ export default function App(props) {
         <BrowserRouter>
             <NavBar />
             <Routes>
+                <Route path="crowdsource" element={<CrowdSource />}/>
                 <Route path="/" element={<HomePage data={props.data} />} />
                 <Route path="/index" element={<HomePage data={props.data} />} />
                 <Route path='about' element={<About />}/>
