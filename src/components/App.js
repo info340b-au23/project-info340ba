@@ -8,7 +8,7 @@ import { Banner } from './Banner.js';
 import { About } from './About.js';
 import { Insights } from './Insights.js';
 import { CrowdSource } from './CrowdSource.js';
-
+import {Classes} from './Classes.js';
 export default function App(props) {
     // form filtering for insights page
     const [ selectedMajor, setSelectedMajor ] = useState('');
@@ -36,6 +36,7 @@ export default function App(props) {
                 <Route path="/" element={<HomePage data={props.data} />} />
                 <Route path="/index" element={<HomePage data={props.data} />} />
                 <Route path='about' element={<About />}/>
+                <Route path='classes' element={<Classes />}/> 
                 <Route path='insights' element={<Insights majorOptions={uniqueTeamNames} data={displayedData} applyFilterCallback={applyFilter}/>} />
             </Routes>
             <Banner />
