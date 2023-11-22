@@ -1,5 +1,8 @@
 import React from 'react';
 
+// The form will support state/controlled input once we move more into firebase and 
+// storing data in a db. This area is currently under construction. 🚧
+
 export function CrowdSource() {
     return (
         <div class="container p-5">

@@ -239,8 +239,7 @@ function PieChartCard(props) {
             },
         },
     };
-
-    console.log(labels, frequencies);
+    
     return (
         <div className="card text-center col-auto m-1 text-center" style={{width: "22rem", height: "22rem"}}>
             <div className="card-body">
