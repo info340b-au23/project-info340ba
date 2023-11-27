@@ -109,6 +109,9 @@ function TagList(props) {
     if (props.alumniData["Have you completed a related internship?"] === "Yes") {
         tagsList.push("Internship(s)")
     }
+    if (props.alumniData["Have you completed related research"]["work experience?"] === "Yes") {
+        tagsList.push("Research");
+    }
 
     const tags = tagsList.map(element => {
         return (

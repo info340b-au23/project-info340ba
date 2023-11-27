@@ -71,67 +71,6 @@ export function CrowdSource() {
                 </select>
             </div>
 
-            <div class="formbold-input-group p-2">
-                <label>
-                Are you pursuing a double major or dual degree?
-                </label>
-                <select class="form-control" name="dual" id="dual">
-                <option value=""> --Select Your Answer--</option>
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
-                </select>
-            </div>
-            
-            <div id="dualMajorQuestion" class="formbold-input-group p-2">
-                <label>
-                What was your dual major?
-                </label>
-                <select class="form-control" name="majors2" id="majors2">
-                <option value=""> --Select Your Answer--</option>
-                <option value="Aeronautics & Astronautics">Aeronautics & Astronautics</option>
-                <option value="AMATH">AMATH</option>
-                <option value="Architecture">Architecture</option>
-                <option value="Astronomy">Astronomy</option>
-                <option value="Biochemistry">Biochemistry</option>
-                <option value="Bioengineering">Bioengineering</option>
-                <option value="Bioresource Science & Engineering">Bioresource Science & Engineering</option>
-                <option value="Biology">Biology</option>
-                <option value="Business">Business</option>
-                <option value="Chemical Engineering">Chemical Engineering</option>
-                <option value="Chemistry">Chemistry</option>
-                <option value="Civil Engineering">Civil Engineering</option>
-                <option value="Communication">Communication</option>
-                <option value="Community, Environment, & Planning">Community, Environment, & Planning</option>
-                <option value="Computational Finance & Risk Management">Computational Finance & Risk Management</option>
-                <option value="Computer Engineering">Computer Engineering</option>
-                <option value="Computer Science">Computer Science</option>
-                <option value="Construction Management">Construction Management</option>
-                <option value="CSE">CSE</option>
-                <option value="Early Childhood & Family Studies">Early Childhood & Family Studies</option>
-                <option value="Economics">Economics</option>
-                <option value="Education, Communities & Organizations">Education, Communities & Organizations</option>
-                <option value="Electrical and Computer Engineering">Electrical and Computer Engineering</option>
-                <option value="Electrical Engineering">Electrical Engineering</option>
-                <option value="Human Centered Design & Engineering">Human Centered Design & Engineering</option>
-                <option value="Industrial & Systems Engineering">Industrial & Systems Engineering</option>
-                <option value="Industrial & Systems Engineering">Industrial & Systems Engineering</option>
-                <option value="Informatics">Informatics</option>
-                <option value="Integrated Social Sciences">Integrated Social Sciences</option>
-                <option value="Law, Societies & Justice">Law, Societies & Justice</option>
-                <option value="Materials Science & Engineering">Materials Science & Engineering</option>
-                <option value="Mathematics">Mathematics</option>
-                <option value="Mechanical Engineering">Mechanical Engineering</option>
-                <option value="Neuroscience">Neuroscience</option>
-                <option value="Nursing">Nursing</option>
-                <option value="Physics">Physics</option>
-                <option value="Psychology">Psychology</option>
-                <option value="Public Health">Public Health</option>
-                <option value="Social Welfare">Social Welfare</option>
-                <option value="Speech & Hearing Sciences">Speech & Hearing Sciences</option>
-                <option value="Statistics">Statistics</option>
-                </select>
-            </div>
-
             <div id="wsaQuestion" class="formbold-input-group p-2">
                 <label>
                 What is your WSA score?
@@ -160,29 +99,6 @@ export function CrowdSource() {
                 <option value="Sophmore">Sophmore</option>
                 <option value="Junior">Junior</option>
                 <option value="Senior">Senior</option>
-                </select>
-            </div>
-
-            <div class="formbold-input-group p-2">
-                <label>
-                What is your residency status?
-                </label>
-                <select class="form-control" name="resident" id="resident">
-                <option value=""> --Select Your Answer--</option>
-                <option value="In-State">In-State Resident</option>
-                <option value="Out-of-State">Out-of-State Resident</option>
-                <option value="International">International</option>
-                </select>
-            </div>
-
-            <div class="formbold-input-group p-2">
-                <label>
-                Are you a first-generation college student?
-                </label>
-                <select class="form-control" name="firstgen" id="firstgen">
-                <option value=""> --Select Your Answer--</option>
-                <option value="Yes">Yes</option>
-                <option value="No">No</option>
                 </select>
             </div>
 
@@ -271,24 +187,6 @@ export function CrowdSource() {
                 <option value="3.8">3.8</option>
                 <option value="3.9">3.9</option>
                 <option value="4.0">4.0</option>
-                </select>
-            </div>
-
-            <div class="formbold-input-group p-2">
-                <label>
-                How many courses have you taken inside the major pre-admittance?
-                </label>
-                <select class="form-control" name="coursestaken" id="coursestaken">
-                <option value=""> --Select Your Answer--</option>
-                <option value="Below">0</option>
-                <option value="1">1</option>
-                <option value="2">2</option>
-                <option value="3">3</option>
-                <option value="4">4</option>
-                <option value="5">5</option>
-                <option value="6">6</option>
-                <option value="7">7</option>
-                <option value="8+">8+</option>
                 </select>
             </div>
 
