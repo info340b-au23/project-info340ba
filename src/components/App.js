@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { HomePage } from './HomePage.js';
 import { Footer } from './Footer.js';
 import { NavBar } from './NavBar.js';
@@ -38,6 +38,7 @@ export default function App(props) {
                 <Route path='about' element={<About />}/>
                 <Route path='classes' element={<Classes />}/> 
                 <Route path='insights' element={<Insights majorOptions={uniqueTeamNames} data={displayedData} applyFilterCallback={applyFilter}/>} />
+                <Route path="*" element={<Navigate to="/index" />} />
             </Routes>
             <Banner />
             <Footer />
