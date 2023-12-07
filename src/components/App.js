@@ -25,6 +25,7 @@ export default function App(props) {
             const amitValue = snapshot.val();
             console.log(amitValue);
             setSurveyData(amitValue);
+            // blah blah blah
         })
 
         //cleanup function for when component is removed
