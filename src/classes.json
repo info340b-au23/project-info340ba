@@ -13,6 +13,113 @@
         ]
     },
     {
+        "majorName": "Integrated Social Sciences",
+        "entries": [
+            {
+                "name": "ISS 301",
+                "desc": "Social Science Theory in Context"
+            },
+            {
+                "name": "ISS 302",
+                "desc": "Survey of Social Science Methods"
+            }
+        ]
+    },
+    {
+        "majorName": "AMATH",
+        "entries": [
+            {
+                "name": "MATH 124",
+                "desc": "Calculus with Analytic Geometry I"
+            },
+            {
+                "name": "AMATH 301",
+                "desc": "Beginning Scientific Computing"
+            }
+        ]
+    },
+    {
+        "majorName": "Mathematics",
+        "entries": [
+            {
+                "name": "MATH 124",
+                "desc": "Calculus with Analytic Geometry I"
+            },
+            {
+                "name": "MATH 125",
+                "desc": "Calculus with Analytic Geometry II"
+            },
+            {
+                "name": "MATH 126",
+                "desc": "Calculus with Analytic Geometry III"
+            }
+        ]
+    },
+    {
+        "majorName": "Neuroscience",
+        "entries": [
+            {
+                "name": "NEUSCI 301",
+                "desc": "Introduction to Cellular and Molecular Neuroscience"
+            },
+            {
+                "name": "NEUSCI 301",
+                "desc": "Introduction to Systems and Behavioral Neuroscience"
+            }
+        ]
+    },
+    {
+        "majorName": "Biochemistry",
+        "entries": [
+            {
+                "name": "BIOC 405",
+                "desc": "Introduction to Biochemistry 1"
+            },
+            {
+                "name": "BIOC 406",
+                "desc": "Introduction to Biochemistry 2"
+            },
+            {
+                "name": "BIOC 426",
+                "desc": "Basic Techniques in Biochemistry"
+            }
+        ]
+    },
+    {
+        "majorName": "Biology",
+        "entries": [
+            {
+                "name": "BIOL 180",
+                "desc": "Introduction to Biochemistry 1"
+            },
+            {
+                "name": "BIOL 200",
+                "desc": "Introduction to Biochemistry 2"
+            },
+            {
+                "name": "BIOL 220",
+                "desc": "Introduction to Biochemistry 3"
+            }
+        ]
+    },
+    {
+        "majorName": "Business",
+        "entries": [
+            {
+                "name": "MKTG 301",
+                "desc": "Marketing Concepts"
+            },
+            {
+                "name": "I BUS 300",
+                "desc": "Global Business Perspectives"
+            },
+            {
+                "name": "B CMU 301",
+                "desc": "Strategic Business Communications"
+            }
+        ]
+    },
+    {
         "majorName": "Computer Science",
         "entries": [
             {
@@ -64,6 +171,52 @@
                 "desc": "Foundations in Pharmacotherapeutics and Pathophysiology"
             }
         ]
+    },
+    {
+        "majorName": "Physics",
+        "entries": [
+            {
+                "name": "PHYS 121",
+                "desc": "Mechanics"
+            },
+            {
+                "name": "PHYS 122",
+                "desc": "Electromagnetism"
+            },
+            {
+                "name": "PHYS 123",
+                "desc": "Waves, Optics, and Heat"
+            }
+        ]
+    },
+    {
+        "majorName": "Psychology",
+        "entries": [
+            {
+                "name": "Psych 101",
+                "desc": "Introduction to Psychology"
+            },
+            {
+                "name": "Psych 202",
+                "desc": "Biopsychology"
+            }
+        ]
+    },
+    {
+        "majorName": "Public Health",
+        "entries": [
+            {
+                "name": "PHI 511",
+                "desc": "Foundations of Public Health"
+            },
+            {
+                "name": "PHI 512",
+                "desc": "Analytic Skills for Public Health I"
+            },
+            {
+                "name": "PHI 513",
+                "desc": "Analytic Skills for Public Health II"
+            }
+        ]
     }
-    
 ]
