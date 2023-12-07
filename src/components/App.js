@@ -9,25 +9,32 @@ import { About } from './About.js';
 import { Insights } from './Insights.js';
 import { CrowdSource } from './CrowdSource.js';
 import { Classes } from './Classes.js';
-import { db } from '../firebase/config.js';
 import { ref, onValue } from 'firebase/database';
+import { db } from '../firebase/config.js';
 
 export default function App(props) {
     // form filtering for insights page
     const [ selectedMajor, setSelectedMajor ] = useState('');
     const [ surveyData, setSurveyData ] = useState([]);
 
-    const tasksRef = ref(db, 'surveyEntries');
-
     useEffect(() => {
-        const getData = onValue(tasksRef, (snapshot) => {
-            const data = snapshot.val();
-            console.log(data);
-            setSurveyData(data);
-        });
+        const tasksRef = ref(db, 'surveyEntries');
 
-        return () => getData();
-    }, [surveyData]);
+        //returns a function that will "unregister" (turn off) the listener
+        const unregisterFunction = onValue(tasksRef, (snapshot) => {
+            const amitValue = snapshot.val();
+            console.log(amitValue);
+            setSurveyData(amitValue);
+            // blah blah blah
+        })
+
+        //cleanup function for when component is removed
+        function cleanup() {
+            unregisterFunction(); //call the unregister function
+        }
+        
+        return cleanup; //effect hook callback returns the cleanup function
+    }, []);
 
     //get sorted list of unique teamNames. reduce array of objects into array of strings, 
     //convert to Set to get uniques, spread back into array, and sort 
