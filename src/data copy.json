@@ -1,5 +1,6 @@
-[
-   {
+{
+   "surveyEntries": [
+      {
       "Timestamp": "",
       "OverallGPA": null,
       "Email Address": "",
@@ -1583,4 +1584,5 @@
       },
       "FIELD27": ""
    }
-]
+  ]
+}

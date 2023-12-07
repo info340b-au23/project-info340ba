@@ -1,4 +1,4 @@
-import { react, useState } from 'react';
+import { React, useState } from 'react';
 import { ClassCard } from './ClassCard';
 import classList from '../classes.json';
 export function Classes() {
