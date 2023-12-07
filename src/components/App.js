@@ -9,39 +9,25 @@ import { About } from './About.js';
 import { Insights } from './Insights.js';
 import { CrowdSource } from './CrowdSource.js';
 import { Classes } from './Classes.js';
-import { getDatabase, ref, onValue } from 'firebase/database';
-import { initializeApp } from 'firebase/app';
+import { db } from '../firebase/config.js';
+import { ref, onValue } from 'firebase/database';
 
 export default function App(props) {
     // form filtering for insights page
     const [ selectedMajor, setSelectedMajor ] = useState('');
     const [ surveyData, setSurveyData ] = useState([]);
 
-    const firebaseConfig = {
-        apiKey: "AIzaSyAO_CnHWMJPgnejQnMt9ZafnHB3Oww4BVY",
-        authDomain: "info-340-ba9----pathwise.firebaseapp.com",
-        databaseURL: "https://info-340-ba9----pathwise-default-rtdb.firebaseio.com",
-        projectId: "info-340-ba9----pathwise",
-        storageBucket: "info-340-ba9----pathwise.appspot.com",
-        messagingSenderId: "468546007102",
-        appId: "1:468546007102:web:ac8ed9ae82d756c962616f"
-    };
-      
-    const app = initializeApp(firebaseConfig);
-    
-    const db = getDatabase();
-    
-    const surveyEntries = ref(db, 'surveyEntries');
+    const tasksRef = ref(db, 'surveyEntries');
 
     useEffect(() => {
-        const getData = onValue(surveyEntries, (snapshot) => {
+        const getData = onValue(tasksRef, (snapshot) => {
             const data = snapshot.val();
             console.log(data);
             setSurveyData(data);
         });
 
         return () => getData();
-    }, [surveyEntries]);
+    }, [surveyData]);
 
     //get sorted list of unique teamNames. reduce array of objects into array of strings, 
     //convert to Set to get uniques, spread back into array, and sort 
