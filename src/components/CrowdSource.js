@@ -1,19 +1,61 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 // The form will support state/controlled input once we move more into firebase and 
 // storing data in a db. This area is currently under construction. 🚧
 
 export function CrowdSource() {
-    return (
-        <div class="container p-5">
-            <form>
+    const initialFormData = {
+        "What Major did you apply to?": '',
+        "Have you been admitted to your major program?": '',
+        "What is your WSA score?": '',
+        "Class Standing": '',
+        "Have you completed Running Start?": '',
+        "Are you a transfer student?": '',
+        "How many transfer credits do you have? (if applicable)": '',
+        "Have you completed a related internship?": '',
+        "Have you completed related research": {
+            "work experience?": ''
+        },
+        "OverallGPA": '',
+        "Is this your first application to the program?": '',
+        "Comments or Suggestions": ''
+    }
 
-            <div class="formbold-input-group p-2">
+    // state variables
+    const [formData, setFormData] = useState(initialFormData);
+    const [showThankYou, setShowThankYou] = useState(false);
+
+    // Handle change
+    const handleChange = event => {
+        const {name, value}  = event.target;
+        setFormData((prevData) => ({
+            ...prevData,
+            [name]: value
+        }));
+        setShowThankYou(false);
+    };
+
+    // Handle submit
+    const handleSubmit = event => {
+        event.preventDefault();
+        
+        // Clear form data after submission
+        setFormData(initialFormData);
+        
+        // Show "Thank You" message
+        setShowThankYou(true);
+    };
+
+    return (
+        <div className="container p-5">
+            <form onSubmit={handleSubmit}>
+
+            <div className="formbold-input-group p-2">
                 <label>
                     What major did you apply to?
                 </label>
             
-                <select class="form-control" name="majors" id="majors">
+                <select className="form-control" name="What Major did you apply to?" id="majors" onChange={handleChange} value={formData["What Major did you apply to?"]}>
                     <option value=""> --Select Your Answer--</option>
                     <option value="Aeronautics & Astronautics">Aeronautics & Astronautics</option>
                     <option value="AMATH">AMATH</option>
@@ -59,23 +101,23 @@ export function CrowdSource() {
                 </select>
             </div>              
 
-            <div class="formbold-input-group p-2">
+            <div className="formbold-input-group p-2">
                 <label>
                 Have you been admitted to your major program? 
                 </label>
         
-                <select class="form-control" name="admitted1">
+                <select className="form-control" name="Have you been admitted to your major program?" onChange={handleChange} value={formData["Have you been admitted to your major program?"]}>
                 <option value=""> --Select Your Answer--</option>
                 <option value="Yes">Yes</option>
                 <option value="No">No</option>
                 </select>
             </div>
 
-            <div id="wsaQuestion" class="formbold-input-group p-2">
+            <div id="wsaQuestion" className="formbold-input-group p-2">
                 <label>
                 What is your WSA score?
                 </label>
-                <select class="form-control" name="Wsa" id="Wsa">
+                <select className="form-control" name="What is your WSA score?" id="Wsa" onChange={handleChange} value={formData["What is your WSA score?"]}>
                 <option value=""> --Select Your Answer--</option>
                 <option value="2.0">2.0</option>
                 <option value="2.5">2.5</option>
@@ -89,11 +131,11 @@ export function CrowdSource() {
                 </select>
             </div>
 
-            <div class="formbold-input-group p-2">
+            <div className="formbold-input-group p-2">
                 <label>
                 What is your class standing?
                 </label>
-                <select class="form-control" name="standing" id="standing">
+                <select className="form-control" name="Class Standing" id="standing" onChange={handleChange} value={formData["Class Standing"]}>
                 <option value=""> --Select Your Answer--</option>
                 <option value="Freshman">Freshman</option>
                 <option value="Sophmore">Sophmore</option>
@@ -102,33 +144,33 @@ export function CrowdSource() {
                 </select>
             </div>
 
-            <div class="formbold-input-group p-2">
+            <div className="formbold-input-group p-2">
                 <label>
                 Have you completed Running Start?
                 </label>
-                <select class="form-control" name="running" id="running">
+                <select className="form-control" name="Have you completed Running Start?" id="running" onChange={handleChange} value={formData["Have you completed Running Start?"]}>
                 <option value=""> --Select Your Answer--</option>
                 <option value="Yes">Yes</option>
                 <option value="No">No</option>
                 </select>
             </div>
 
-            <div class="formbold-input-group p-2">
+            <div className="formbold-input-group p-2">
                 <label>
                 Are you a transfer student?
                 </label>
-                <select class="form-control" name="transfer" id="transfer">
+                <select className="form-control" name="Are you a transfer student?" id="transfer" onChange={handleChange} value={formData["Are you a transfer student?"]}>
                 <option value=""> --Select Your Answer--</option>
                 <option value="Yes">Yes</option>
                 <option value="No">No</option>
                 </select>
             </div>
 
-            <div class="formbold-input-group p-2">
+            <div className="formbold-input-group p-2">
                 <label>
                 How many transfer credits do you have? (if applicable)
                 </label>
-                <select class="form-control" name="transcredit" id="transcredit">
+                <select className="form-control" name="How many transfer credits do you have? (if applicable)" id="transcredit" onChange={handleChange} value={formData["How many transfer credits do you have? (if applicable)"]}>
                 <option value=""> --Select Your Answer--</option>
                 <option value="0-15">0-15</option>
                 <option value="16-30">16-30</option>
@@ -138,33 +180,33 @@ export function CrowdSource() {
                 </select>
             </div>
 
-            <div class="formbold-input-group p-2">
+            <div className="formbold-input-group p-2">
                 <label>
                 Have you completed major related internship?
                 </label>
-                <select class="form-control" name="internship" id="internship">
+                <select className="form-control" name="Have you completed a related internship?" id="internship" onChange={handleChange} value={formData["Have you completed a related internship?"]}>
                 <option value=""> --Select Your Answer--</option>
                 <option value="yes">Yes</option>
                 <option value="no">No</option>
                 </select>
             </div>
 
-            <div class="formbold-input-group p-2">
+            <div className="formbold-input-group p-2">
                 <label>
                 Have you completed related research/work experience?
                 </label>
-                <select class="form-control" name="work" id="work">
+                <select className="form-control" name="Have you completed related research" id="work" onChange={handleChange} value={formData["Have you completed related research"]}>
                 <option value=""> --Select Your Answer--</option>
                 <option value="yes">Yes</option>
                 <option value="no">No</option>
                 </select>
             </div>
 
-            <div class="formbold-input-group p-2">
+            <div className="formbold-input-group p-2">
                 <label>
                 What is your overall UW GPA?
                 </label>
-                <select class="form-control" name="gpa" id="gpa">
+                <select className="form-control" name="OverallGPA" id="gpa" onChange={handleChange} value={formData["OverallGPA"]}>
                 <option value=""> --Select Your Answer--</option>
                 <option value="Below">Below 2.0</option>
                 <option value="2.1">2.1</option>
@@ -190,11 +232,11 @@ export function CrowdSource() {
                 </select>
             </div>
 
-            <div class="formbold-input-group p-2">
+            <div className="formbold-input-group p-2">
                 <label>
                     Is this your first application to the program?
                 </label>
-                <select class="form-control" name="firstapp" id="firstapp">
+                <select className="form-control" name="Is this your first application to the program?" id="firstapp" onChange={handleChange} value={formData["Is this your first application to the program?"]}>
                     <option value=""> --Select Your Answer--</option>
                     <option value="yes">Yes</option>
                     <option value="2nd">No, it is my 2nd</option>
@@ -204,18 +246,22 @@ export function CrowdSource() {
                 </select>
             </div>
     
-            <div class="formbold-input-group p-2">
-                <label for="message">
+            <div className="formbold-input-group p-2">
+                <label htmlFor="message">
                 Any comments or suggestions
                 </label>
                 <textarea
                     rows="6"
-                    name="message"
+                    name="Comments or Suggestions"
                     id="message"
                     placeholder="Type here..."
-                    class="form-control"
+                    className="form-control"
+                    onChange={handleChange}
+                    value={formData["Comments or Suggestions"]}
                 ></textarea>
-                <button class="btn btn-primary mt-2">Submit</button>
+                <button className="btn btn-primary mt-2">Submit</button>
+
+                {showThankYou && <p className="mt-2">Thank you for your submission!</p>}
             </div>
             </form>
         </div>
