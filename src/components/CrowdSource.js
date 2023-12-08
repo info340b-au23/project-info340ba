@@ -1,10 +1,12 @@
 import React, { useState } from 'react';
+import { ref, push as firebasePush } from 'firebase/database';
 
 // The form will support state/controlled input once we move more into firebase and 
 // storing data in a db. This area is currently under construction. 🚧
 
-export function CrowdSource() {
+export function CrowdSource(props) {
     const initialFormData = {
+        "Timestamp": '',
         "What Major did you apply to?": '',
         "Have you been admitted to your major program?": '',
         "What is your WSA score?": '',
@@ -17,6 +19,7 @@ export function CrowdSource() {
             "work experience?": ''
         },
         "OverallGPA": '',
+        "Have you received any academic scholarships or awards?": '',
         "Is this your first application to the program?": '',
         "Comments or Suggestions": ''
     }
@@ -35,15 +38,34 @@ export function CrowdSource() {
         setShowThankYou(false);
     };
 
+    // Firebase
+    const dataRef = ref(props.dataBase, 'surveyEntries');
+    console.log(dataRef);
+
     // Handle submit
-    const handleSubmit = event => {
+    const handleSubmit = async event => {
         event.preventDefault();
-        
-        // Clear form data after submission
-        setFormData(initialFormData);
-        
-        // Show "Thank You" message
-        setShowThankYou(true);
+        // Add timestamp
+        let time = Date.now();
+        setFormData((prevData) => ({
+            ...prevData,
+            ["Timestamp"]: time
+        }));
+
+        try {
+            // Push new data to Firebase
+            await firebasePush(dataRef, formData);
+    
+            // Clear form data after submission
+            setFormData(initialFormData);
+    
+            // Show "Thank You" message
+            setShowThankYou(true);
+    
+            console.log('Data successfully added to surveyEntries');
+        } catch (error) {
+            console.error('Error adding data to surveyEntries:', error.message);
+        }
     };
 
     return (
@@ -157,6 +179,18 @@ export function CrowdSource() {
 
             <div className="formbold-input-group p-2">
                 <label>
+                Have you received any academic scholarships or awards?
+                </label>
+                <select className="form-control" name="Have you received any academic scholarships or awards?" id="running" onChange={handleChange} value={formData["Have you received any academic scholarships or awards?"]}>
+                <option value=""> --Select Your Answer--</option>
+                <option value="Yes (Full)">Yes (Full)</option>
+                <option value="Yes (Partial)">Yes (Partial)</option>
+                <option value="No">No</option>
+                </select>
+            </div>
+
+            <div className="formbold-input-group p-2">
+                <label>
                 Are you a transfer student?
                 </label>
                 <select className="form-control" name="Are you a transfer student?" id="transfer" onChange={handleChange} value={formData["Are you a transfer student?"]}>
@@ -186,8 +220,8 @@ export function CrowdSource() {
                 </label>
                 <select className="form-control" name="Have you completed a related internship?" id="internship" onChange={handleChange} value={formData["Have you completed a related internship?"]}>
                 <option value=""> --Select Your Answer--</option>
-                <option value="yes">Yes</option>
-                <option value="no">No</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
                 </select>
             </div>
 
@@ -197,8 +231,8 @@ export function CrowdSource() {
                 </label>
                 <select className="form-control" name="Have you completed related research" id="work" onChange={handleChange} value={formData["Have you completed related research"]}>
                 <option value=""> --Select Your Answer--</option>
-                <option value="yes">Yes</option>
-                <option value="no">No</option>
+                <option value="Yes">Yes</option>
+                <option value="No">No</option>
                 </select>
             </div>
 

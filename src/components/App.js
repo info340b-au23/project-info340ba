@@ -36,16 +36,22 @@ export default function App(props) {
         return cleanup; //effect hook callback returns the cleanup function
     }, []);
 
-    //get sorted list of unique teamNames. reduce array of objects into array of strings, 
-    //convert to Set to get uniques, spread back into array, and sort 
-    const uniqueTeamNames = [...new Set(surveyData.reduce((all, current) => {
-        return all.concat([current["What Major did you apply to?"]]);
+    console.log(typeof surveyData);
+
+    // Get a sorted list of unique teamNames
+    const uniqueTeamNames = [...new Set(Object.values(surveyData).reduce((all, current) => {
+        const teamName = current["teamName"];
+        if (teamName) {
+            return all.concat([teamName]);
+        }
+        return all;
     }, []))].sort();
 
-    let displayedData = surveyData.filter((entry) => {
+    // Filter data based on selectedMajor
+    let displayedData = Object.values(surveyData).filter((entry) => {
         if (selectedMajor === '') return true;
-        return entry["What Major did you apply to?"] === selectedMajor;
-    })
+        return entry["teamName"] === selectedMajor;
+    });
 
     const applyFilter = (major) => {
         setSelectedMajor(major);
@@ -55,7 +61,7 @@ export default function App(props) {
         <BrowserRouter>
             <NavBar />
             <Routes>
-                <Route path="crowdsource" element={<CrowdSource />}/>
+                <Route path="crowdsource" element={<CrowdSource dataBase={db}/>}/>
                 <Route path="/" element={<HomePage data={surveyData} />} />
                 <Route path="/index" element={<HomePage data={surveyData} />} />
                 <Route path='about' element={<About />}/>

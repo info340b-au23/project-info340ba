@@ -4,7 +4,7 @@ import '../index.css';
 
 export function TableList(props) { 
     // Filter file
-    const filteredData = props.data.filter(obj => {
+    const filteredData = Object.values(props.data).filter(obj => {
         const admitted = obj["Have you been admitted to your major program?"];
         return admitted === "Yes";
     });
@@ -100,7 +100,7 @@ function TagList(props) {
     if (props.alumniData["Have you completed Running Start?"] === "Yes") {
         tagsList.push("Running Start");
     };
-    if (props.alumniData["Have you received any academic scholarships or awards?"] === "Yes (Partial)" || "Yes (Full)") {
+    if (props.alumniData["Have you received any academic scholarships or awards?"] === "Yes (Partial)" || props.alumniData["Have you received any academic scholarships or awards?"] === "Yes (Full)") {
         tagsList.push("Scholarship(s)");
     };
     if (props.alumniData["Are you a transfer student?"] === 'Yes') {
@@ -109,7 +109,7 @@ function TagList(props) {
     if (props.alumniData["Have you completed a related internship?"] === "Yes") {
         tagsList.push("Internship(s)")
     }
-    if (props.alumniData["Have you completed related research"]["work experience?"] === "Yes") {
+    if (props.alumniData["Have you completed related research"]["work experience?"] === "Yes" || props.alumniData["Have you completed related research"] === "Yes") {
         tagsList.push("Research");
     }
 
