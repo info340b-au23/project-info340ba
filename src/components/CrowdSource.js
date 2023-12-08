@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
 import { ref, push as firebasePush } from 'firebase/database';
 
-// The form will support state/controlled input once we move more into firebase and 
-// storing data in a db. This area is currently under construction. 🚧
-
 export function CrowdSource(props) {
     const initialFormData = {
         "Timestamp": '',
@@ -19,6 +16,7 @@ export function CrowdSource(props) {
             "work experience?": ''
         },
         "OverallGPA": '',
+        "preReqGPA": '',
         "Have you received any academic scholarships or awards?": '',
         "Is this your first application to the program?": '',
         "Comments or Suggestions": ''
@@ -160,7 +158,7 @@ export function CrowdSource(props) {
                 <select className="form-control" name="Class Standing" id="standing" onChange={handleChange} value={formData["Class Standing"]}>
                 <option value=""> --Select Your Answer--</option>
                 <option value="Freshman">Freshman</option>
-                <option value="Sophmore">Sophmore</option>
+                <option value="Sophomore">Sophomore</option>
                 <option value="Junior">Junior</option>
                 <option value="Senior">Senior</option>
                 </select>
@@ -241,6 +239,36 @@ export function CrowdSource(props) {
                 What is your overall UW GPA?
                 </label>
                 <select className="form-control" name="OverallGPA" id="gpa" onChange={handleChange} value={formData["OverallGPA"]}>
+                <option value=""> --Select Your Answer--</option>
+                <option value="Below">Below 2.0</option>
+                <option value="2.1">2.1</option>
+                <option value="2.2">2.2</option>
+                <option value="2.3">2.3</option>
+                <option value="2.4">2.4</option>
+                <option value="2.5">2.5</option>
+                <option value="2.6">2.6</option>
+                <option value="2.7">2.7</option>
+                <option value="2.8">2.8</option>
+                <option value="2.9">2.9</option>
+                <option value="3.0">3.0</option>
+                <option value="3.1">3.1</option>
+                <option value="3.2">3.2</option>
+                <option value="3.3">3.3</option>
+                <option value="3.4">3.4</option>
+                <option value="3.5">3.5</option>
+                <option value="3.6">3.6</option>
+                <option value="3.7">3.7</option>
+                <option value="3.8">3.8</option>
+                <option value="3.9">3.9</option>
+                <option value="4.0">4.0</option>
+                </select>
+            </div>
+
+            <div className="formbold-input-group p-2">
+                <label>
+                What was your pre-requisite UW GPA for your major?
+                </label>
+                <select className="form-control" name="preReqGPA" id="gpa" onChange={handleChange} value={formData["preReqGPA"]}>
                 <option value=""> --Select Your Answer--</option>
                 <option value="Below">Below 2.0</option>
                 <option value="2.1">2.1</option>

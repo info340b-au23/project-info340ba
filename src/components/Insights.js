@@ -11,6 +11,28 @@ let calculatedHeight = 0;
 export function Insights(props) {
     const [ selectedMajor, setSelectedMajor ] = useState('');
 
+    let filteredData = props.data.filter(current => {
+        return 'OverallGPA' in current && 
+            current.OverallGPA !== undefined && 
+            current.OverallGPA !== null &&
+            'preReqGPA' in current &&
+            current.preReqGPA !== undefined &&
+            current.preReqGPA !== null &&
+            !isNaN(current.preReqGPA);
+    });
+
+    console.log(filteredData);
+
+    filteredData = filteredData.map((entry) => {
+        if (entry.hasOwnProperty('OverallGPA') && typeof entry.OverallGPA === 'string') {
+            entry.OverallGPA = parseFloat(entry.OverallGPA);
+        }
+        if (entry.hasOwnProperty('preReqGPA') && typeof entry.preReqGPA === 'string') {
+            entry.preReqGPA = parseFloat(entry.preReqGPA);
+        }
+        return entry;
+    });
+
     const selectMajor = (event) => {
         setSelectedMajor(event.target.value);
     }
@@ -25,26 +47,30 @@ export function Insights(props) {
         props.applyFilterCallback(selectedMajor);
     }
 
-    const cumulativeGPA = props.data.reduce((accumulator, current) => {
+    const cumulativeGPA = filteredData.reduce((accumulator, current) => {
         return accumulator + current.OverallGPA;
     }, 0);
 
-    let averageCumulativeGPA = ((cumulativeGPA / props.data.length).toFixed(2));
+    let averageCumulativeGPA = ((cumulativeGPA / filteredData.length).toFixed(2));
 
-    const cumulativePreReqGPA = props.data.reduce((accumulator, current) => {
+    const cumulativePreReqGPA = filteredData.reduce((accumulator, current) => {
         if (current.preReqGPA === "Below 2.0") {
             return accumulator + 2.0;
         }
         return accumulator + Number(current.preReqGPA);
     }, 0);
 
-    let averagePreReqGPA = ((cumulativePreReqGPA / props.data.length).toFixed(2));
+    let averagePreReqGPA = ((cumulativePreReqGPA / filteredData.length).toFixed(2));
 
-    const cumulativeGPATrend = props.data.reduce((accumulator, current) => {
-        return accumulator + current["What is your GPA trend?"];
+    const cumulativeGPATrend = filteredData.reduce((accumulator, current) => {
+        if (current["What is your GPA trend?"] !== null) {
+            return accumulator + current["What is your GPA trend?"];
+        } else {
+            return accumulator;
+        }
     }, 0);
 
-    let averageGPATrend = ((cumulativeGPATrend / props.data.length).toFixed(2));
+    let averageGPATrend = ((cumulativeGPATrend / filteredData.length).toFixed(2));
 
     return (
         <div className="d-flex flex-column container justify-content-center pt-5">
@@ -66,16 +92,16 @@ export function Insights(props) {
             </div>
             <div className="d-flex flex-column justify-content-center text-center p-5">
                 <div>
-                    <BarChart data={props.data} selectedMajor={selectedMajor} field={"OverallGPA"} title={"Overall GPA Distribution Among Applicants"}/>
+                    <BarChart data={filteredData} selectedMajor={selectedMajor} field={"OverallGPA"} title={"Overall GPA Distribution Among Applicants"}/>
                 </div>
                 <div>
-                    <BarChart data={props.data} selectedMajor={selectedMajor} field={"preReqGPA"} title={"Overall preReq-GPA Distribution Among Applicants"}/>
+                    <BarChart data={filteredData} selectedMajor={selectedMajor} field={"preReqGPA"} title={"Overall preReq-GPA Distribution Among Applicants"}/>
                 </div>
             </div>
             <div className="row justify-content-center">
-                <PieChartCard data={props.data} selectedMajor={selectedMajor} field={"How many transfer credits do you have? (if applicable)"} title={"Transfer Credits Amongst Applicants"}/>
-                <PieChartCard data={props.data} selectedMajor={selectedMajor} field={"Class Standing"} title={"Class Standing"}/>
-                <PieChartCard data={props.data} selectedMajor={selectedMajor} field={"Have you received any academic scholarships or awards?"} title={"Students on Scholarship"}/>
+                <PieChartCard data={filteredData} selectedMajor={selectedMajor} field={"How many transfer credits do you have? (if applicable)"} title={"Transfer Credits Amongst Applicants"}/>
+                <PieChartCard data={filteredData} selectedMajor={selectedMajor} field={"Class Standing"} title={"Class Standing"}/>
+                <PieChartCard data={filteredData} selectedMajor={selectedMajor} field={"Have you received any academic scholarships or awards?"} title={"Students on Scholarship"}/>
             </div>
         </div>
     )

@@ -36,7 +36,7 @@ export default function App(props) {
         return cleanup; //effect hook callback returns the cleanup function
     }, []);
 
-    console.log(typeof surveyData);
+    console.log(surveyData);
 
     // Get a sorted list of unique teamNames
     const uniqueTeamNames = [...new Set(Object.values(surveyData).reduce((all, current) => {
