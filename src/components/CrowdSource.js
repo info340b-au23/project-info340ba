@@ -17,6 +17,7 @@ export function CrowdSource(props) {
         },
         "OverallGPA": '',
         "preReqGPA": '',
+        "What is your GPA trend?": '',
         "Have you received any academic scholarships or awards?": '',
         "Is this your first application to the program?": '',
         "Comments or Suggestions": ''
@@ -53,13 +54,10 @@ export function CrowdSource(props) {
         try {
             // Push new data to Firebase
             await firebasePush(dataRef, formData);
-    
             // Clear form data after submission
             setFormData(initialFormData);
-    
             // Show "Thank You" message
             setShowThankYou(true);
-    
             console.log('Data successfully added to surveyEntries');
         } catch (error) {
             console.error('Error adding data to surveyEntries:', error.message);
@@ -261,6 +259,25 @@ export function CrowdSource(props) {
                 <option value="3.8">3.8</option>
                 <option value="3.9">3.9</option>
                 <option value="4.0">4.0</option>
+                </select>
+            </div>
+
+            <div className="formbold-input-group p-2">
+                <label>
+                What is your GPA trend? (1 is decreasing and 10 is increasing)
+                </label>
+                <select className="form-control" name="What is your GPA trend?" id="gpa" onChange={handleChange} value={formData["What is your GPA trend?"]}>
+                <option value=""> --Select Your Answer--</option>
+                <option value="1">1</option>
+                <option value="2">2</option>
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
                 </select>
             </div>
 

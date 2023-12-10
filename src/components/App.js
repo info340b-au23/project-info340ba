@@ -13,50 +13,41 @@ import { ref, onValue } from 'firebase/database';
 import { db } from '../firebase/config.js';
 
 export default function App(props) {
-    // form filtering for insights page
     const [ selectedMajor, setSelectedMajor ] = useState('');
     const [ surveyData, setSurveyData ] = useState([]);
+
+    const applyFilter = (major) => {
+        setSelectedMajor(major);
+    }
 
     useEffect(() => {
         const tasksRef = ref(db, 'surveyEntries');
 
-        //returns a function that will "unregister" (turn off) the listener
         const unregisterFunction = onValue(tasksRef, (snapshot) => {
             const amitValue = snapshot.val();
-            console.log(amitValue);
             setSurveyData(amitValue);
-            // blah blah blah
         })
 
-        //cleanup function for when component is removed
         function cleanup() {
-            unregisterFunction(); //call the unregister function
+            unregisterFunction();
         }
         
-        return cleanup; //effect hook callback returns the cleanup function
+        return cleanup; 
     }, []);
 
-    console.log(surveyData);
-
-    // Get a sorted list of unique teamNames
-    const uniqueTeamNames = [...new Set(Object.values(surveyData).reduce((all, current) => {
-        const teamName = current["teamName"];
+    const availableMajors = [...new Set(Object.values(surveyData).reduce((all, current) => {
+        const teamName = current["What Major did you apply to?"];
         if (teamName) {
             return all.concat([teamName]);
         }
         return all;
     }, []))].sort();
 
-    // Filter data based on selectedMajor
     let displayedData = Object.values(surveyData).filter((entry) => {
         if (selectedMajor === '') return true;
-        return entry["teamName"] === selectedMajor;
+        return entry["What Major did you apply to?"] === selectedMajor;
     });
 
-    const applyFilter = (major) => {
-        setSelectedMajor(major);
-    }
-    
     return (
         <BrowserRouter>
             <NavBar />
@@ -66,7 +57,7 @@ export default function App(props) {
                 <Route path="/index" element={<HomePage data={surveyData} />} />
                 <Route path='about' element={<About />}/>
                 <Route path='classes' element={<Classes />}/> 
-                <Route path='insights' element={<Insights majorOptions={uniqueTeamNames} data={displayedData} applyFilterCallback={applyFilter}/>} />
+                <Route path='insights' element={<Insights majorOptions={availableMajors} data={displayedData} selectedMajor={selectedMajor} applyFilterCallback={applyFilter}/>} />
                 <Route path="*" element={<Navigate to="/index" />} />
             </Routes>
             <Banner />

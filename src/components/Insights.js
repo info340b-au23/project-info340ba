@@ -1,51 +1,54 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Bar, Pie} from 'react-chartjs-2';
 import Chart from 'chart.js/auto';
 import { Chart as ChartJS, ArcElement, Tooltip, Legend, Colors } from 'chart.js';
 
 ChartJS.register(ArcElement, Tooltip, Legend, Colors);
 
+Chart.defaults.font.size = 14;
+
 let calculatedWidth = 0;
 let calculatedHeight = 0;
 
 export function Insights(props) {
-    const [ selectedMajor, setSelectedMajor ] = useState('');
 
     let filteredData = props.data.filter(current => {
-        return 'OverallGPA' in current && 
-            current.OverallGPA !== undefined && 
-            current.OverallGPA !== null &&
-            'preReqGPA' in current &&
-            current.preReqGPA !== undefined &&
-            current.preReqGPA !== null &&
-            !isNaN(current.preReqGPA);
+        for (let key in current) {
+            if (current[key] === null || current[key] === undefined || Number.isNaN(current[key])) {
+                return false;
+            }
+        }
+        return true;
     });
-
-    console.log(filteredData);
 
     filteredData = filteredData.map((entry) => {
         if (entry.hasOwnProperty('OverallGPA') && typeof entry.OverallGPA === 'string') {
             entry.OverallGPA = parseFloat(entry.OverallGPA);
         }
         if (entry.hasOwnProperty('preReqGPA') && typeof entry.preReqGPA === 'string') {
-            entry.preReqGPA = parseFloat(entry.preReqGPA);
+            if (entry.preReqGPA === "Below 2.0") {
+                entry.preReqGPA = 2.0;
+            } else {
+                entry.preReqGPA = parseFloat(entry.preReqGPA);
+            }
+        }
+        if (entry.hasOwnProperty('What is your GPA trend?') && typeof entry['What is your GPA trend?'] === 'string') {
+            if (entry['What is your GPA trend?'] === "Below 2.0") {
+                entry['What is your GPA trend?'] = 2.0;
+            } else {
+                entry['What is your GPA trend?'] = parseFloat(entry['What is your GPA trend?']);
+            }
         }
         return entry;
     });
 
     const selectMajor = (event) => {
-        setSelectedMajor(event.target.value);
+        props.applyFilterCallback(event.target.value);
     }
 
     const optionElems = props.majorOptions.map((major) => {
         return <option key={major} value={major}>{major}</option>
     })
-
-    Chart.defaults.font.size = 14;
-    
-    const handleClick = () => {
-        props.applyFilterCallback(selectedMajor);
-    }
 
     const cumulativeGPA = filteredData.reduce((accumulator, current) => {
         return accumulator + current.OverallGPA;
@@ -63,11 +66,7 @@ export function Insights(props) {
     let averagePreReqGPA = ((cumulativePreReqGPA / filteredData.length).toFixed(2));
 
     const cumulativeGPATrend = filteredData.reduce((accumulator, current) => {
-        if (current["What is your GPA trend?"] !== null) {
-            return accumulator + current["What is your GPA trend?"];
-        } else {
-            return accumulator;
-        }
+        return accumulator + current["What is your GPA trend?"];
     }, 0);
 
     let averageGPATrend = ((cumulativeGPATrend / filteredData.length).toFixed(2));
@@ -76,32 +75,29 @@ export function Insights(props) {
         <div className="d-flex flex-column container justify-content-center pt-5">
             <div className="row justify-content-center">
                 <div className="col-auto">
-                    <select id="majorSelect" onChange={selectMajor} className="form-select" value={selectedMajor}>
+                    <select id="majorSelect" onChange={selectMajor} className="form-select" value={props.selectedMajor}>
                         <option value="">Show all majors</option>
                         {optionElems}
                     </select>
-                </div>
-                <div className="col-auto">
-                    <button onClick={handleClick} id="submitButton" type="submit" className="btn bg-info bg-opacity-50">Apply Filter</button>
                 </div>
             </div>
             <div className="row justify-content-center pt-5">
                 <AverageCard message={"Average Overall GPA:"} average={averageCumulativeGPA} yourAverage={3.87}/>
                 <AverageCard message={"Average Pre-Req GPA:"} average={averagePreReqGPA} yourAverage={3.55}/>
-                <AverageCard message={"Average GPA Trend:"} average={averageGPATrend} yourAverage={null}/>
+                <AverageCard selectedMajor={props.selectedMajor} message={"Average GPA Trend:"} average={averageGPATrend} yourAverage={null}/>
             </div>
             <div className="d-flex flex-column justify-content-center text-center p-5">
                 <div>
-                    <BarChart data={filteredData} selectedMajor={selectedMajor} field={"OverallGPA"} title={"Overall GPA Distribution Among Applicants"}/>
+                    <BarChart data={filteredData} selectedMajor={props.selectedMajor} field={"OverallGPA"} title={"Overall GPA Distribution Among Applicants"}/>
                 </div>
                 <div>
-                    <BarChart data={filteredData} selectedMajor={selectedMajor} field={"preReqGPA"} title={"Overall preReq-GPA Distribution Among Applicants"}/>
+                    <BarChart data={filteredData} selectedMajor={props.selectedMajor} field={"preReqGPA"} title={"Overall preReq-GPA Distribution Among Applicants"}/>
                 </div>
             </div>
             <div className="row justify-content-center">
-                <PieChartCard data={filteredData} selectedMajor={selectedMajor} field={"How many transfer credits do you have? (if applicable)"} title={"Transfer Credits Amongst Applicants"}/>
-                <PieChartCard data={filteredData} selectedMajor={selectedMajor} field={"Class Standing"} title={"Class Standing"}/>
-                <PieChartCard data={filteredData} selectedMajor={selectedMajor} field={"Have you received any academic scholarships or awards?"} title={"Students on Scholarship"}/>
+                <PieChartCard data={filteredData} selectedMajor={props.selectedMajor} field={"How many transfer credits do you have? (if applicable)"} title={"Transfer Credits Amongst Applicants"}/>
+                <PieChartCard data={filteredData} selectedMajor={props.selectedMajor} field={"Class Standing"} title={"Class Standing"}/>
+                <PieChartCard data={filteredData} selectedMajor={props.selectedMajor} field={"Have you received any academic scholarships or awards?"} title={"Students on Scholarship"}/>
             </div>
         </div>
     )
@@ -109,6 +105,15 @@ export function Insights(props) {
 
 function AverageCard(props) {
     let buttonClasses = "d-inline border border-success-subtle rounded-3 p-1";
+
+    function lineEquation(xValue, yValue, zValue) {
+        if (yValue === undefined) {
+            return (((xValue - calculatedHeight) * (zValue - 5))/(10)) + (calculatedWidth/4);
+        } else {
+            return null;
+        }
+    }
+
     if (props.average >= 3.75) {
         buttonClasses += " bg-goodGrades";
     } else if (props.average >= 3.5) {
@@ -148,14 +153,6 @@ function AverageCard(props) {
             {graph}
         </div>
     )
-}
-
-function lineEquation(xValue, yValue, zValue) {
-    if (yValue === undefined) {
-        return (((xValue - calculatedHeight) * (zValue - 5))/(10)) + (calculatedWidth/4);
-    } else {
-        return null;
-    }
 }
 
 function BarChart(props) {
@@ -235,11 +232,9 @@ function PieChartCard(props) {
 
     let labels = [];
     let frequencies = [];
-    // let randColors = []; -> for random colors (if needed!)
     frequenciesMappedByKey.forEach(entry => {
         labels.push(entry.Field);
         frequencies.push(entry.Frequency);
-        // randColors.push(`rgb(${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)}, ${Math.floor(Math.random() * 255)})`);
     })
 
     const graphData = {
@@ -247,7 +242,7 @@ function PieChartCard(props) {
         datasets: [
             {
             label: 'Number of Students' + props.selectedMajor,
-            data: frequencies, // removing randColors here makes the default palette appear
+            data: frequencies,
             },
         ],
     }
