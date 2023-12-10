@@ -27,7 +27,7 @@ export function NavBar(props) {
                             <NavLink className="font-weight-bold nav-link" to="about">About</NavLink>
                         </li>
                     </ul>
-                    <a href="https://discord.com/" target="#">
+                    <a href="https://github.com/" target="#">
                         <img id="growingIcon" className="nav-icon p-1" src="img/github.svg" alt="github company logo"/>
                     </a>
                     <a href="https://discord.com/" target="#">
