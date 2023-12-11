@@ -37,7 +37,6 @@ tr {
 }
 
 /* Banner */
-
 .logos {
   overflow: hidden;
   padding: 30px 0;
@@ -80,7 +79,6 @@ tr {
 }
 
 /* Landing Page CTA */
-
 .mission-arrow {
   width: 1rem;
   margin-bottom: 0.25rem;
@@ -107,23 +105,31 @@ tr {
 }
 
 /* Navbar Styling */
-
 .navbar-border {
   border-bottom: 2px solid #4b2e83;
 }
 
 .nav-icon {
   width: 2rem;
+  filter: invert(1);
 }
 
-.custom-navbar-toggler {
-  border-radius: 0;
-  border-color: black;
-  border-width: 0.15rem;
+.navbar-brand {
+  font-weight: bold;
+  font-family: "Barlow", sans-serif;
+  color: white !important;
+}
+
+.nav-link {
+  font-family: "Barlow", sans-serif;
+  color: white !important;
+}
+
+.nav-backg {
+  background-color: #4b2e83;
 }
 
 /* Custom Buttons */
-
 .custom-button-primary {
   border-radius: 0;
   border-width: 0.15rem;
@@ -164,7 +170,6 @@ tr {
 }
 
 /* Footer Styling */
-
 .white-footer-li {
   color: black;
 }
@@ -174,7 +179,6 @@ tr {
 }
 
 /* Drawings + Cards */
-
 .drawings img {
   border-bottom: 2px solid black;
   border-top: 2px solid black;
@@ -195,7 +199,6 @@ tr {
 }
 
 /* Tables */
-
 .table-styling {
   overflow-y: scroll;
   display: block;
@@ -234,18 +237,6 @@ td:nth-child(4) {
 
 .btn-sort .white {
   color: white;
-}
-
-/* Internship Guide Styling */
-
-.internship-logo {
-  height: 100px;
-  width: 100px;
-}
-
-.internship-pg-link {
-  color: black;
-  text-decoration: underline;
 }
 
 /* A lot of our media-query work is done within bootstraps grid system. */
