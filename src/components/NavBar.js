@@ -5,8 +5,8 @@ import '../index.css';
 
 export function NavBar(props) {
     return (
-        <div className="container">
-            <nav className='navbar-border navbar navbar-expand-lg navbar-light bg-white'>
+        <div className="container nav-backg">
+            <nav className='navbar-border navbar navbar-expand-lg navbar-dark'>
                 <div className='container-fluid'>
                     <NavLink className='navbar-brand' to="index">
                         PATHWISE
