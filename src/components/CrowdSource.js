@@ -39,17 +39,15 @@ export function CrowdSource(props) {
 
     // Firebase
     const dataRef = ref(props.dataBase, 'surveyEntries');
-    console.log(dataRef);
 
     // Handle submit
     const handleSubmit = async event => {
         event.preventDefault();
         // Add timestamp
         let time = Date.now();
-        setFormData((prevData) => ({
-            ...prevData,
-            ["Timestamp"]: time
-        }));
+        let dataCopy = formData;
+        dataCopy.Timestamp = time;
+        setFormData(dataCopy);
 
         try {
             // Push new data to Firebase
