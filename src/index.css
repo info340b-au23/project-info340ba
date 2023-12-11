@@ -111,6 +111,7 @@ tr {
 
 .nav-icon {
   width: 2rem;
+  filter: invert(1);
 }
 
 .navbar-brand {
