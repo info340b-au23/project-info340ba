@@ -1,6 +1,6 @@
 import { getDatabase } from 'firebase/database';
 import { initializeApp } from 'firebase/app';
-import {getAuth, emailAuthProvider, GoogleAuthProvider } from 'firebase/auth';
+import {getAuth, EmailAuthProvider, GoogleAuthProvider } from 'firebase/auth';
 import StyledFirebaseAuth from './StyledFirebaseAuth';
 
 const firebaseConfig = {
@@ -12,7 +12,7 @@ const firebaseConfig = {
     messagingSenderId: "468546007102",
     appId: "1:468546007102:web:ac8ed9ae82d756c962616f",
     signInOptions : [
-        googleAuthProvider.PROVIDER_ID,
+        GoogleAuthProvider.PROVIDER_ID,
         { provider: EmailAuthProvider.PROVIDER_ID, requiredDisplayName: true },
 
     ],
