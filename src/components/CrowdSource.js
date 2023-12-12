@@ -37,29 +37,22 @@ export function CrowdSource(props) {
         setShowThankYou(false);
     };
 
-    // Firebase
     const dataRef = ref(props.dataBase, 'surveyEntries');
 
-    // Handle submit
     const handleSubmit = async event => {
         event.preventDefault();
 
-        // Check for empty Form
         if (checkEmptyForm(formData)) {
             setShowError(true);
         } else {
-            // Add timestamp
             let time = Date.now();
             let dataCopy = formData;
             dataCopy.Timestamp = time;
             setFormData(dataCopy);
 
             try {
-                // Push new data to Firebase
                 await firebasePush(dataRef, formData);
-                // Clear form data after submission
                 setFormData(initialFormData);
-                // Show "Thank You" message
                 setShowThankYou(true);
                 console.log('Data successfully added to surveyEntries');
             } catch (error) {

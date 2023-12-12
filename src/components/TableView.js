@@ -3,39 +3,33 @@ import _ from 'lodash';
 import '../index.css';
 
 export function TableList(props) { 
-    // Filter file
     const filteredData = Object.values(props.data).filter(obj => {
         const admitted = obj["Have you been admitted to your major program?"];
         return admitted === "Yes";
     });
 
-    // State variables  
     const [sortByCriteria, setSortByCriteria] = useState(null);
     const [isAscending, setIsAscending] = useState(null);
 
-    // Callback function
     let handleClick = event => {
-        // If current targets name is not the current sortByCriteria
         if (event.currentTarget.name !== sortByCriteria) {
             setSortByCriteria(event.currentTarget.name);
             setIsAscending(true);
         } else {
-            if (isAscending === true) { // If already ascending, then reverse
+            if (isAscending === true) { 
                 setIsAscending(false);
-            } else if (isAscending === false) { // If not ascending, cease all sorting
+            } else if (isAscending === false) { 
                 setSortByCriteria(null);
                 setIsAscending(null);
             }
         }
     }
 
-    // Sorts the data based on state variables
     const sortedData = _.sortBy(filteredData, sortByCriteria);
     if (sortByCriteria !== null && isAscending === false) {
         _.reverse(sortedData);
     }
 
-    // Make array of table rows
     const tableRows = sortedData.map(obj => {
         return <TableRow alumniData={obj} key={obj.Timestamp} />
     });
@@ -96,7 +90,6 @@ function SortButton(props) {
 function TagList(props) {
     const tagsList = [];
 
-    // Checks if has tags
     if (props.alumniData["Have you completed Running Start?"] === "Yes") {
         tagsList.push("Running Start");
     };
