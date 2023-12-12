@@ -179,12 +179,8 @@ tr {
 }
 
 /* Drawings + Cards */
-.drawings img {
-  border-bottom: 2px solid black;
-  border-top: 2px solid black;
-}
-
 .card-body h3 {
+  font-weight: bold;
   border-bottom: 1px solid #000;
   padding-bottom: 5px;
   margin-bottom: 10px;
@@ -196,6 +192,18 @@ tr {
 
 .card-styling {
   border-radius: 0;
+}
+
+.card-hover {
+  transition: box-shadow 0.5s ease;
+}
+
+.card-hover:hover {
+  box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.card-quote {
+  font-style: italic;
 }
 
 /* Tables */
