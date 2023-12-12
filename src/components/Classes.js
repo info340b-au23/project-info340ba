@@ -17,8 +17,8 @@ export function Classes() {
                                 your experience and educational progress. </p>
                         </section>
                     </div>
-                    <div className="col-md-4 text-right">
-                        <img className="img-fluid" src="img/pathwisebook.JPG" alt="a black book with a bookmark hanging out">
+                    <div className="col-md-4 d-flex justify-content-center">
+                        <img className="img-fluid img-class" src="img/success.png" alt="a guy holding a trophy">
                         </img>
                     </div>
                 </div>

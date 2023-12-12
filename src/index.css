@@ -28,7 +28,7 @@ h5,
 h6,
 th {
   font-family: "Barlow";
-  font-weight: bold;
+  font-weight: bold !important;
 }
 
 p,
@@ -104,6 +104,15 @@ tr {
   max-width: 100%;
 }
 
+.img-home {
+  width: 50%;
+  height: 50%
+}
+
+.img-logo {
+  padding-right: 1rem;
+}
+
 /* Navbar Styling */
 .navbar-border {
   border-bottom: 2px solid #4b2e83;
@@ -170,12 +179,20 @@ tr {
 }
 
 /* Footer Styling */
+.footer-bg {
+  background-color: #4b2e83;
+}
+
+.barlow {
+  color: white;
+}
+
 .white-footer-li {
-  color: black;
+  color: white;
 }
 
 .white-footer-li:hover {
-  color: black;
+  color: white;
 }
 
 /* Drawings + Cards */
@@ -318,4 +335,10 @@ td:nth-child(4) {
   display: flex;
   flex-direction: column;
   font-family: "Barlow", sans-serif;
+}
+
+/* Class Section */
+.img-class {
+  width: 50%;
+  height: 30%;
 }
