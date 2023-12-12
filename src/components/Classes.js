@@ -11,14 +11,14 @@ export function Classes() {
                     <div className="col-md-8">
                         <section className="justify-content-center">
                             <section className="flex-container align-middle">
-                                <h2>WHICH CLASSES SHOULD I TAKE?</h2>
+                                <h1>WHICH CLASSES SHOULD I TAKE?</h1>
                             </section>
                             <p>At the University of Washington, it is important to carefully select your classes to optimize
                                 your experience and educational progress. </p>
                         </section>
                     </div>
-                    <div className="col-md-4 text-right">
-                        <img className="img-fluid" src="img/pathwisebook.JPG" alt="a black book with a bookmark hanging out">
+                    <div className="col-md-4 d-flex justify-content-center">
+                        <img className="img-fluid img-class" src="img/success.png" alt="a guy holding a trophy">
                         </img>
                     </div>
                 </div>

@@ -8,18 +8,18 @@ export function HomePage(props) {
             <div className="container p-5">
                 <div className="row">
                     <div className="col-md-8"> 
-                    <section className="justify-content-center">
-                        <section className="d-flex align-middle">
-                            <h1>PATHWISE</h1>
-                            <img src="img/path.JPG" alt="pathwise icon" className="img-fluid" />
-                        </section>
-                        <p>Our platform is a groundbreaking project that provides transparent and comprehensive
+                        <section className="justify-content-center">
+                            <section className="d-flex align-middle p-2">
+                                <img src="img/mountainlogo.png" alt="pathwise icon" className="img-fluid img-logo" />
+                                <h1>PATHWISE</h1>
+                            </section>
+                            <p>Our platform is a groundbreaking project that provides transparent and comprehensive
                             information on competitive majors at the University of Washington (UW), empowering
                             students to make informed decisions amidst limited spots and intense competition.</p>
-                    </section>
-                </div>
-                    <div className="col-md-4 d-flex justify-content-end">
-                        <img className="img-fluid" src="img/pathwisebook.JPG" alt="a black book with a bookmark hanging out" />
+                        </section>
+                    </div>
+                    <div className="col-md-4 d-flex justify-content-center">
+                        <img className='img-fluid img-home' src="img/home.png" alt="a girl flying on a lightbulb" />
                     </div>
                 </div>
             </div>
