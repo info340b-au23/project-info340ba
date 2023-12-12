@@ -12,7 +12,7 @@ export function About() {
                 <div className="row m-2"> 
                     <div className="col-xl-3 col-lg-3 col-md-4 col-sm-6">
                         <div className="card card-hover text-center" style={{width: '100%', marginTop: "1rem"}}>
-                            <img className="m-4" alt="Simon Kurgan making a peace sign gesture with his hands" src="img/faces/simon.JPG" style={{borderRadius: '50%'}}/> 
+                            <img className="m-4" alt="Simon Kurgan making a peace sign gesture with his hands" src="img/faces/simon.png" style={{borderRadius: '50%'}}/> 
                             <div className="card-body">
                                 <h3>Simon Kurgan</h3>
                                 <p>Project Manager & Developer</p>
@@ -31,7 +31,7 @@ export function About() {
                     </div>
                     <div className="col-xl-3 col-lg-3 col-md-4 col-sm-6">
                         <div className="card card-hover text-center" style={{width: '100%', marginTop: "1rem"}}>
-                            <img className="m-4" alt="Marvin tran in a mushroom cap" src="img/faces/marvin.JPG" style={{borderRadius: '50%'}}/> 
+                            <img className="m-4" alt="Marvin tran in a mushroom cap" src="img/faces/marvin.png" style={{borderRadius: '50%'}}/> 
                             <div className="card-body">
                                 <h3>Marvin Tran</h3>
                                 <p>Developer</p>
@@ -46,7 +46,7 @@ export function About() {
                     </div>
                     <div className="col-xl-3 col-lg-3 col-md-4 col-sm-6">
                         <div className="card card-hover text-center" style={{width: '100%', marginTop: "1rem"}}>
-                            <img className="m-4" alt="Businessman Eddie B" src="img/faces/eddie.JPG" style={{borderRadius: '50%'}}/> 
+                            <img className="m-4" alt="Businessman Eddie B" src="img/faces/eddie.png" style={{borderRadius: '50%'}}/> 
                             <div className="card-body">
                                 <h3>Eddie B.</h3>
                                 <p>Developer</p>
@@ -56,7 +56,7 @@ export function About() {
                     </div>
                     <div className="col-xl-3 col-lg-3 col-md-4 col-sm-6">
                         <div className="card card-hover text-center" style={{width: '100%', marginTop: "1rem"}}>
-                            <img className="m-4" alt="Jesse Kim seen at disneyland" src="img/faces/jessie.JPG" style={{borderRadius: '50%'}}/> 
+                            <img className="m-4" alt="Jesse Kim seen at disneyland" src="img/faces/jessie.png" style={{borderRadius: '50%'}}/> 
                             <div className="card-body">
                                 <h3>Jesse Kim</h3>
                                 <p>Developer</p>
