@@ -266,6 +266,11 @@ td:nth-child(4) {
   color: white;
 }
 
+.bg-tag {
+  background-color: #4b2e83;
+  color: white;
+}
+
 /* A lot of our media-query work is done within bootstraps grid system. */
 /* For example, our research guides page has responsive columns by screen size (md -> lg) */
 @media (min-width: 768px) {
