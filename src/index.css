@@ -12,6 +12,7 @@
 
 html {
   font-size: 14px;
+  min-height: 100vh;
   /* or any desired size */
 }
 
@@ -181,6 +182,11 @@ tr {
 /* Footer Styling */
 .footer-bg {
   background-color: #4b2e83;
+}
+
+.footer {
+  position: sticky;
+  bottom: 0;
 }
 
 .barlow {
