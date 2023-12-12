@@ -3,6 +3,12 @@ import { ClassCard } from './ClassCard';
 import classList from '../classes.json';
 export function Classes() {
     const [searchText, setSearchText] = useState("");
+
+    let outputClasses = classList.filter(({ majorName }) =>
+        majorName.toLowerCase().includes(searchText.toLowerCase()),
+    ).map(({ majorName, entries }) =>
+        <ClassCard majorName={majorName} entries={entries} />
+    )
     
     return (
         <div>
@@ -16,10 +22,6 @@ export function Classes() {
                             <p>At the University of Washington, it is important to carefully select your classes to optimize
                                 your experience and educational progress. </p>
                         </section>
-                    </div>
-                    <div className="col-md-4 d-flex justify-content-center">
-                        <img className="img-fluid img-class" src="img/success.png" alt="a guy holding a trophy">
-                        </img>
                     </div>
                 </div>
             </div>
@@ -36,12 +38,7 @@ export function Classes() {
                 </div>
             </div>
             <div className="container p-5">
-                {searchText && classList.filter(({ majorName }) =>
-                    majorName.toLowerCase().includes(searchText.toLowerCase()),
-                )
-                    .map(({ majorName, entries }) =>
-                        <ClassCard majorName={majorName} entries={entries} />
-                    )} 
+                {searchText && outputClasses}
             </div>
         </div>)
 }

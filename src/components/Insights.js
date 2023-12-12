@@ -66,6 +66,7 @@ export function Insights(props) {
     let averagePreReqGPA = ((cumulativePreReqGPA / filteredData.length).toFixed(2));
 
     const cumulativeGPATrend = filteredData.reduce((accumulator, current) => {
+        console.log(current["What is your GPA trend?"]);
         return accumulator + current["What is your GPA trend?"];
     }, 0);
 
@@ -203,9 +204,13 @@ function BarChart(props) {
                 position: 'top',
             },
             title: {
-            display: true,
-            text: props.title,
+                display: true,
+                text: props.title,
             },
+            colors: {
+                forceOverride: true,
+                enabled: true,
+            }
         },
     };
 
@@ -241,8 +246,8 @@ function PieChartCard(props) {
         labels,
         datasets: [
             {
-            label: 'Number of Students' + props.selectedMajor,
-            data: frequencies,
+                label: 'Number of Students' + props.selectedMajor,
+                data: frequencies,
             },
         ],
     }
@@ -252,12 +257,16 @@ function PieChartCard(props) {
         maintainAspectRatio: true,
         plugins: {
             legend: {
-            position: 'top',
+                position: 'top',
             },
             title: {
-            display: true,
-            text: props.title,
+                display: true,
+                text: props.title,
             },
+            colors: {
+                forceOverride: true,
+                enabled: true,
+            }
         },
     };
     

@@ -3,7 +3,6 @@ import { ref, push as firebasePush } from 'firebase/database';
 
 export function CrowdSource(props) {
     const initialFormData = {
-        "Timestamp": '',
         "What Major did you apply to?": '',
         "Have you been admitted to your major program?": '',
         "What is your WSA score?": '',
@@ -20,12 +19,12 @@ export function CrowdSource(props) {
         "What is your GPA trend?": '',
         "Have you received any academic scholarships or awards?": '',
         "Is this your first application to the program?": '',
-        "Comments or Suggestions": ''
     }
 
     // state variables
     const [formData, setFormData] = useState(initialFormData);
     const [showThankYou, setShowThankYou] = useState(false);
+    const [showError, setShowError] = useState(false);
 
     // Handle change
     const handleChange = event => {
@@ -34,6 +33,7 @@ export function CrowdSource(props) {
             ...prevData,
             [name]: value
         }));
+        setShowError(false);
         setShowThankYou(false);
     };
 
@@ -43,22 +43,28 @@ export function CrowdSource(props) {
     // Handle submit
     const handleSubmit = async event => {
         event.preventDefault();
-        // Add timestamp
-        let time = Date.now();
-        let dataCopy = formData;
-        dataCopy.Timestamp = time;
-        setFormData(dataCopy);
 
-        try {
-            // Push new data to Firebase
-            await firebasePush(dataRef, formData);
-            // Clear form data after submission
-            setFormData(initialFormData);
-            // Show "Thank You" message
-            setShowThankYou(true);
-            console.log('Data successfully added to surveyEntries');
-        } catch (error) {
-            console.error('Error adding data to surveyEntries:', error.message);
+        // Check for empty Form
+        if (checkEmptyForm(formData)) {
+            setShowError(true);
+        } else {
+            // Add timestamp
+            let time = Date.now();
+            let dataCopy = formData;
+            dataCopy.Timestamp = time;
+            setFormData(dataCopy);
+
+            try {
+                // Push new data to Firebase
+                await firebasePush(dataRef, formData);
+                // Clear form data after submission
+                setFormData(initialFormData);
+                // Show "Thank You" message
+                setShowThankYou(true);
+                console.log('Data successfully added to surveyEntries');
+            } catch (error) {
+                console.error('Error adding data to surveyEntries:', error.message);
+            }
         }
     };
 
@@ -342,24 +348,21 @@ export function CrowdSource(props) {
                 </div>
         
                 <div className="formbold-input-group p-2">
-                    <label htmlFor="message">
-                    Any comments or suggestions
-                    </label>
-                    <textarea
-                        rows="6"
-                        name="Comments or Suggestions"
-                        id="message"
-                        placeholder="Type here..."
-                        className="form-control"
-                        onChange={handleChange}
-                        value={formData["Comments or Suggestions"]}
-                    ></textarea>
-                    <button className="btn btn-primary mt-2">Submit</button>
-
+                    <button style={{color: "white", backgroundColor: "#4b2e83"}} className="btn mt-2">Submit</button>
+                    {showError && <p className="mt-2">Please enter all responses.</p>}
                     {showThankYou && <p className="mt-2">Thank you for your submission!</p>}
                 </div>
                 </form>
             </div>
         </div>
     )
+}
+
+let checkEmptyForm = obj => {
+    for (var key in obj) {
+        if (obj[key] === "") {
+            return true;
+        }
+    }
+    return false;
 }

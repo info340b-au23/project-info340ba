@@ -12,6 +12,7 @@
 
 html {
   font-size: 14px;
+  min-height: 100vh;
   /* or any desired size */
 }
 
@@ -179,6 +180,11 @@ tr {
   background-color: #4b2e83;
 }
 
+.footer {
+  position: sticky;
+  bottom: 0;
+}
+
 .barlow {
   color: white;
 }
@@ -257,6 +263,11 @@ td:nth-child(4) {
 }
 
 .btn-sort .white {
+  color: white;
+}
+
+.bg-tag {
+  background-color: #4b2e83;
   color: white;
 }
 
