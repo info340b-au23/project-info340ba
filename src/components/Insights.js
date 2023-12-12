@@ -204,9 +204,13 @@ function BarChart(props) {
                 position: 'top',
             },
             title: {
-            display: true,
-            text: props.title,
+                display: true,
+                text: props.title,
             },
+            colors: {
+                forceOverride: true,
+                enabled: true,
+            }
         },
     };
 
