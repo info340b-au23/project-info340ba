@@ -35,7 +35,12 @@ export function About() {
                             <div className="card-body">
                                 <h3>Marvin Tran</h3>
                                 <p>Developer</p>
-                                <img id="growingIcon" className="p-1" src="img/Linkedin.png" alt="linkedin company logo" style={{width: '20%'}}/>
+                                <p className="card-quote">
+                                    I created the table on the main page and the crowd sourcing page.
+                                </p>
+                                <a href="https://www.linkedin.com/in/marvin-tran-a3327929a/" target="#">
+                                    <img id="growingIcon" className="p-1" src="img/Linkedin.png" alt="linkedin company logo" style={{width: '20%'}}/>
+                                </a>
                             </div>
                         </div>
                     </div>
