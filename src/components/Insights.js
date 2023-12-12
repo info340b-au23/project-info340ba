@@ -66,7 +66,6 @@ export function Insights(props) {
     let averagePreReqGPA = ((cumulativePreReqGPA / filteredData.length).toFixed(2));
 
     const cumulativeGPATrend = filteredData.reduce((accumulator, current) => {
-        console.log(current["What is your GPA trend?"]);
         return accumulator + current["What is your GPA trend?"];
     }, 0);
 
@@ -83,8 +82,8 @@ export function Insights(props) {
                 </div>
             </div>
             <div className="row justify-content-center pt-5">
-                <AverageCard message={"Average Overall GPA:"} average={averageCumulativeGPA} yourAverage={3.87}/>
-                <AverageCard message={"Average Pre-Req GPA:"} average={averagePreReqGPA} yourAverage={3.55}/>
+                <AverageCard message={"Average Overall GPA:"} average={averageCumulativeGPA}/>
+                <AverageCard message={"Average Pre-Req GPA:"} average={averagePreReqGPA}/>
                 <AverageCard selectedMajor={props.selectedMajor} message={"Average GPA Trend:"} average={averageGPATrend} yourAverage={null}/>
             </div>
             <div className="d-flex flex-column justify-content-center text-center p-5">
@@ -134,23 +133,12 @@ function AverageCard(props) {
             </svg>
     }
 
-    let content;
-
-    if (props.yourAverage !== null) {
-        content = 
-            <div className="card-body">
-                <h5 className="card-title">{"Your " + props.message}</h5>
-                <p href="#" className={buttonClasses}>{props.yourAverage}</p>
-            </div>
-    }
-
     return (
         <div className="card text-center col-auto m-1 text-center" style={{width: "22rem"}}>
             <div className="card-body">
                 <h5 className="card-title">{props.message}</h5>
                 <p href="#" className={buttonClasses}>{props.average}</p>
             </div>
-            {content}
             {graph}
         </div>
     )
