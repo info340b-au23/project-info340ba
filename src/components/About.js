@@ -51,7 +51,7 @@ export function About() {
                                 <h3>Eddie B.</h3>
                                 <p>Developer</p>
                                 <p className="card-quote">
-                                    I created the classes and the classcard components. I also worked on the Navbar and helping to create the other parts of our website.
+                                    I created the classes and the classcard components. I also worked on the Navbar and helped to create the other parts of our website.
                                 </p>
                                 <a href="https://www.linkedin.com/in/eddie-baghdasaryan-644513203/" target="#">
                                     <img id="growingIcon" className="p-1" src="img/Linkedin.png" alt="linkedin company logo" style={{width: '20%'}}/>
