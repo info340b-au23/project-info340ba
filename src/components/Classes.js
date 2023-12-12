@@ -3,6 +3,12 @@ import { ClassCard } from './ClassCard';
 import classList from '../classes.json';
 export function Classes() {
     const [searchText, setSearchText] = useState("");
+
+    let outputClasses = classList.filter(({ majorName }) =>
+        majorName.toLowerCase().includes(searchText.toLowerCase()),
+    ).map(({ majorName, entries }) =>
+        <ClassCard majorName={majorName} entries={entries} />
+    )
     
     return (
         <div>
@@ -32,12 +38,7 @@ export function Classes() {
                 </div>
             </div>
             <div className="container p-5">
-                {searchText && classList.filter(({ majorName }) =>
-                    majorName.toLowerCase().includes(searchText.toLowerCase()),
-                )
-                    .map(({ majorName, entries }) =>
-                        <ClassCard majorName={majorName} entries={entries} />
-                    )} 
+                {searchText && outputClasses}
             </div>
         </div>)
 }

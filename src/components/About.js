@@ -21,7 +21,7 @@ export function About() {
                                 </p>
                                 <p>See my design work here:</p>
                                 <a href="https://www.linkedin.com/in/simon-kurgan/" target="#">
-                                    <img id="growingIcon" className="p-1" src="img/Linkedin.png" alt="linkedin company logo" style={{width: '20%'}}/>
+                                    <img id="growingIcon" className="p-1" src="img/LinkedIn.png" alt="linkedin company logo" style={{width: '20%'}}/>
                                 </a>
                                 <a href="https://www.figma.com/file/H9JCjHrL07MunCBrB7ovA0/PATHWISE-webpage?type=design&node-id=438%3A238&mode=design&t=1GwDq48mND3P7LsM-1" target="#">
                                     <img id="growingIcon" className="p-1" src="img/figma.png" alt="figma company logo" style={{width: '15%'}}></img>
@@ -39,7 +39,7 @@ export function About() {
                                     I created the table on the main page and the crowd sourcing page.
                                 </p>
                                 <a href="https://www.linkedin.com/in/marvin-tran-a3327929a/" target="#">
-                                    <img id="growingIcon" className="p-1" src="img/Linkedin.png" alt="linkedin company logo" style={{width: '20%'}}/>
+                                    <img id="growingIcon" className="p-1" src="img/LinkedIn.png" alt="linkedin company logo" style={{width: '20%'}}/>
                                 </a>
                             </div>
                         </div>
@@ -50,7 +50,7 @@ export function About() {
                             <div className="card-body">
                                 <h3>Eddie B.</h3>
                                 <p>Developer</p>
-                                <img id="growingIcon" className="p-1" src="img/Linkedin.png" alt="linkedin company logo" style={{width: '20%'}}/>
+                                <img id="growingIcon" className="p-1" src="img/LinkedIn.png" alt="linkedin company logo" style={{width: '20%'}}/>
                             </div>
                         </div>
                     </div>
@@ -65,7 +65,7 @@ export function About() {
                                 </p>
                                 <p>Let's connect:</p>
                                 <a href="https://www.linkedin.com/in/jessaykym/" target="#">
-                                    <img id="growingIcon" className="p-1" src="img/Linkedin.png" alt="linkedin company logo" style={{width: '20%'}}/>
+                                    <img id="growingIcon" className="p-1" src="img/LinkedIn.png" alt="linkedin company logo" style={{width: '20%'}}/>
                                 </a>
                             </div>
                         </div>
