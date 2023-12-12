@@ -56,11 +56,17 @@ export function About() {
                     </div>
                     <div className="col-xl-3 col-lg-3 col-md-4 col-sm-6">
                         <div className="card card-hover text-center" style={{width: '100%', marginTop: "1rem"}}>
-                            <img className="m-4" alt="Jessie Kim seen at disneyland" src="img/faces/jessie.JPG" style={{borderRadius: '50%'}}/> 
+                            <img className="m-4" alt="Jesse Kim seen at disneyland" src="img/faces/jessie.JPG" style={{borderRadius: '50%'}}/> 
                             <div className="card-body">
-                                <h3>Jessie Kim</h3>
+                                <h3>Jesse Kim</h3>
                                 <p>Developer</p>
-                                <img id="growingIcon" className="p-1" src="img/Linkedin.png" alt="linkedin company logo" style={{width: '20%'}}/>
+                                <p className="card-quote">
+                                    I worked on the layout, style, and color of the website. I also helped develop the navigation bar and format the home, classes, and crowd source pages.
+                                </p>
+                                <p>Let's connect:</p>
+                                <a href="https://www.linkedin.com/in/jessaykym/" target="#">
+                                    <img id="growingIcon" className="p-1" src="img/Linkedin.png" alt="linkedin company logo" style={{width: '20%'}}/>
+                                </a>
                             </div>
                         </div>
                     </div>

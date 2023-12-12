@@ -9,7 +9,7 @@ export function HomePage(props) {
                 <div className="row">
                     <div className="col-md-8"> 
                         <section className="justify-content-center">
-                            <section className="d-flex align-middle p-2">
+                            <section className="d-flex align-items-center">
                                 <img src="img/mountainlogo.png" alt="pathwise icon" className="img-fluid img-logo" />
                                 <h1>PATHWISE</h1>
                             </section>

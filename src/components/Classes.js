@@ -17,10 +17,6 @@ export function Classes() {
                                 your experience and educational progress. </p>
                         </section>
                     </div>
-                    <div className="col-md-4 d-flex justify-content-center">
-                        <img className="img-fluid img-class" src="img/success.png" alt="a guy holding a trophy">
-                        </img>
-                    </div>
                 </div>
             </div>
             <div className="container p-5">

@@ -45,9 +45,6 @@ export function CrowdSource(props) {
         event.preventDefault();
 
         // Check for empty Form
-        console.log(formData);
-        console.log(checkEmptyForm(formData));
-
         if (checkEmptyForm(formData)) {
             setShowError(true);
         } else {
@@ -351,7 +348,23 @@ export function CrowdSource(props) {
                 </div>
         
                 <div className="formbold-input-group p-2">
+<<<<<<< HEAD
                     <button className="btn btn-primary mt-2">Submit</button>
+=======
+                    <label htmlFor="message">
+                    Any comments or suggestions
+                    </label>
+                    <textarea
+                        rows="6"
+                        name="Comments or Suggestions"
+                        id="message"
+                        placeholder="Type here..."
+                        className="form-control"
+                        onChange={handleChange}
+                        value={formData["Comments or Suggestions"]}
+                    ></textarea>
+                    <button style={{color: "white", backgroundColor: "#4b2e83"}} className="btn mt-2">Submit</button>
+>>>>>>> 81a930e5f8a9de948c648c3a89f646d1742f3008
 
                     {showError && <p className="mt-2">Please enter all responses.</p>}
                     {showThankYou && <p className="mt-2">Thank you for your submission!</p>}
