@@ -17,7 +17,7 @@ export function NavBar(props) {
                     <Nav.Link href="index">Home</Nav.Link>
                     <Nav.Link href="insights">Insights</Nav.Link>
                     <Nav.Link href="classes">Classes</Nav.Link>
-                    <Nav.Link href="#crowdsource">Crowdsource</Nav.Link>
+                    <Nav.Link href="crowdsource">Crowdsource</Nav.Link>
                     <Nav.Link href="about">About</Nav.Link>
                   </Nav>
                 </Container>
