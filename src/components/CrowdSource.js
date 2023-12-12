@@ -354,7 +354,7 @@ export function CrowdSource(props) {
                         onChange={handleChange}
                         value={formData["Comments or Suggestions"]}
                     ></textarea>
-                    <button className="btn btn-primary mt-2">Submit</button>
+                    <button style={{color: "white", backgroundColor: "#4b2e83"}} className="btn mt-2">Submit</button>
 
                     {showThankYou && <p className="mt-2">Thank you for your submission!</p>}
                 </div>
