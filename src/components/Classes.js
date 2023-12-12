@@ -11,7 +11,7 @@ export function Classes() {
                     <div className="col-md-8">
                         <section className="justify-content-center">
                             <section className="flex-container align-middle">
-                                <h1>WHICH CLASSES SHOULD I TAKE?</h1>
+                                <h2>WHICH CLASSES SHOULD I TAKE?</h2>
                             </section>
                             <p>At the University of Washington, it is important to carefully select your classes to optimize
                                 your experience and educational progress. </p>
