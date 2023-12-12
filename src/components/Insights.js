@@ -83,8 +83,8 @@ export function Insights(props) {
             </div>
             <div className="row justify-content-center pt-5">
                 <AverageCard message={"Average Overall GPA:"} average={averageCumulativeGPA}/>
-                <AverageCard message={"Average Pre-Req GPA:"} average={averagePreReqGPA}/>
                 <AverageCard selectedMajor={props.selectedMajor} message={"Average GPA Trend:"} average={averageGPATrend} yourAverage={null}/>
+                <AverageCard message={"Average Pre-Req GPA:"} average={averagePreReqGPA}/>
             </div>
             <div className="d-flex flex-column justify-content-center text-center p-5">
                 <div>
